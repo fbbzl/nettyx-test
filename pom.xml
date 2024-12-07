@@ -19,15 +19,7 @@
         <dependency>
             <groupId>io.github.fbbzl</groupId>
             <artifactId>nettyx</artifactId>
-            <version>2.3.1-RELEASE</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.36</version>
-            <scope>provided</scope>
+            <version>2.3.18-RELEASE</version>
         </dependency>
 
     </dependencies>
