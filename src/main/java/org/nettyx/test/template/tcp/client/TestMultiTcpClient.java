@@ -1,4 +1,4 @@
-package org.nettyx.test.tcp.template.tcp.client;
+package org.nettyx.test.template.tcp.client;
 
 
 import cn.hutool.core.lang.Console;
@@ -7,8 +7,7 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import org.fz.nettyx.listener.ActionChannelFutureListener;
 import org.fz.nettyx.template.tcp.client.MultiTcpChannelClientTemplate;
-import org.nettyx.test.tcp.template.TestChannelInitializer;
-
+import org.nettyx.test.template.TestChannelInitializer;
 
 import java.net.InetSocketAddress;
 import java.util.HashMap;
@@ -16,7 +15,7 @@ import java.util.Map;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.fz.nettyx.action.ListenerAction.redo;
-import static org.nettyx.test.tcp.codec.UserCodec.TEST_USER;
+import static org.nettyx.test.codec.UserCodec.TEST_USER;
 
 
 /**

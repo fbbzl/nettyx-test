@@ -1,4 +1,4 @@
-package org.nettyx.test.tcp.codec.model;
+package org.nettyx.test.codec.model;
 
 import lombok.Data;
 import org.fz.nettyx.serializer.struct.annotation.Struct;
