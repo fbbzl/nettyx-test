@@ -27,9 +27,9 @@ public class User<T, W, G> {
 
     private Bom<T, W, G>                                b;
     @ToArray(length = 50)
-    private Bom<T, W, Clong4>[]                         g111fs;
+    private Bom<T, W, Clong4>[]                           g111fs;
     @ToArrayList(size = 50)
-    private List<Bom<T, Son<Cuchar, Bill>, GirlFriend>> bs2d;
+    private List<Bom<T, Son<Cuchar11, Bill>, GirlFriend>> bs2d;
 
     private T       sonsbaba;
     @ToArray(length = 50)
@@ -58,9 +58,9 @@ public class User<T, W, G> {
     private Clong4       clong4;
     private Clong8       clong8;
     private Clonglong    clonglong;
-    private Cshort       cshort;
-    private Cuchar       cuchar;
-    private Cuint        cuint;
+    private Cshort   cshort;
+    private Cuchar11 cuchar11;
+    private Cuint    cuint;
     private Culong4      culong4;
     private Culong8      culong8;
     private Culonglong   culonglong;
