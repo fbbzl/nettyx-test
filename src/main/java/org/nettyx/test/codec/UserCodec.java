@@ -26,8 +26,8 @@ public class UserCodec extends StructCodec<User<Clong4, Wife<Culong8, Son<Clong4
 
     @Override
     protected void encode(ChannelHandlerContext ctx, User<Clong4, Wife<Culong8, Son<Clong4, Bill>>, GirlFriend> msg, ByteBuf out) {
-        StopWatch stopWatch = StopWatch.create("serializer");
-        stopWatch.start("obj");
+        StopWatch stopWatch = StopWatch.create("encode");
+        stopWatch.start("encode");
         super.encode(ctx, msg, out);
         stopWatch.stop();
 
@@ -36,8 +36,8 @@ public class UserCodec extends StructCodec<User<Clong4, Wife<Culong8, Son<Clong4
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf msg, List<Object> out) {
-        StopWatch stopWatch = StopWatch.create("serializer");
-        stopWatch.start("obj");
+        StopWatch stopWatch = StopWatch.create("decode");
+        stopWatch.start("decode");
         super.decode(ctx, msg, out);
         stopWatch.stop();
 
