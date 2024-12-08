@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class UserCodec extends StructCodec<User<Clong4, Wife<Culong8, Son<Clong4, Bill>>, GirlFriend>> {
 
-    private static final StructSerializerContext context = new StructSerializerContext("org.nettyx.test.codec.model");
+    private static final StructSerializerContext context = new StructSerializerContext("org.nettyx.test");
 
     public static final User<Clong4, Wife<Culong8, Son<Clong4, Bill>>, GirlFriend> TEST_USER = new User<>();
 
