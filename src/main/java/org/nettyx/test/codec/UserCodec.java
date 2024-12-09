@@ -6,6 +6,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import org.fz.nettyx.codec.StructCodec;
 import org.fz.nettyx.serializer.struct.StructSerializerContext;
+import org.fz.nettyx.serializer.struct.basic.c.signed.Cint;
 import org.fz.nettyx.serializer.struct.basic.c.signed.Clong4;
 import org.fz.nettyx.serializer.struct.basic.c.unsigned.Culong8;
 import org.nettyx.test.codec.model.*;
@@ -22,7 +23,12 @@ public class UserCodec extends StructCodec<User<Clong4, Wife<Culong8, Son<Clong4
 
     private static final StructSerializerContext context = new StructSerializerContext("org.nettyx.test");
 
-    public static final User<Clong4, Wife<Culong8, Son<Clong4, Bill>>, GirlFriend> TEST_USER = new User<>();
+    public static final User<Clong4, Wife<Culong8, Son<Clong4, Bill>>, GirlFriend> TEST_USER;
+
+    static {
+        TEST_USER = new User<>();
+        TEST_USER.setCint(Cint.MIN_VALUE);
+    }
 
     @Override
     protected void encode(ChannelHandlerContext ctx, User<Clong4, Wife<Culong8, Son<Clong4, Bill>>, GirlFriend> msg, ByteBuf out) {
