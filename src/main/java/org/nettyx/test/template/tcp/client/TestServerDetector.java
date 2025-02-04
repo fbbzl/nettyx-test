@@ -1,4 +1,4 @@
-package org.nettyx.test.tcp.template.tcp.client;
+package org.nettyx.test.template.tcp.client;
 
 import cn.hutool.core.lang.Console;
 import cn.hutool.core.util.StrUtil;

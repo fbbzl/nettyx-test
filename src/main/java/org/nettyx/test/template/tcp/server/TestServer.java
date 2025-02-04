@@ -1,11 +1,11 @@
-package org.nettyx.test.tcp.template.tcp.server;
+package org.nettyx.test.template.tcp.server;
 
 import cn.hutool.core.lang.Console;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import org.fz.nettyx.template.tcp.server.TcpServerTemplate;
-import org.nettyx.test.tcp.template.TestChannelInitializer;
+import org.nettyx.test.template.TestChannelInitializer;
 
 
 /**

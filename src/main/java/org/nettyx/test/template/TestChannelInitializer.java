@@ -1,4 +1,4 @@
-package org.nettyx.test.tcp.template;
+package org.nettyx.test.template;
 
 
 import io.netty.channel.Channel;
@@ -7,7 +7,7 @@ import io.netty.handler.logging.LoggingHandler;
 import org.fz.nettyx.codec.EscapeCodec;
 import org.fz.nettyx.codec.StartEndFlagFrameCodec;
 import org.fz.nettyx.handler.MessageEchoHandler;
-import org.nettyx.test.tcp.codec.UserCodec;
+import org.nettyx.test.codec.UserCodec;
 
 import static io.netty.buffer.Unpooled.wrappedBuffer;
 import static io.netty.handler.logging.ByteBufFormat.HEX_DUMP;
