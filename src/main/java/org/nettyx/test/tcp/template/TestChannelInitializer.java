@@ -5,7 +5,6 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.handler.logging.LoggingHandler;
 import org.fz.nettyx.codec.EscapeCodec;
-import org.fz.nettyx.codec.EscapeCodec.EscapeMap;
 import org.fz.nettyx.codec.StartEndFlagFrameCodec;
 import org.fz.nettyx.handler.MessageEchoHandler;
 import org.nettyx.test.tcp.codec.UserCodec;
@@ -26,7 +25,7 @@ public class TestChannelInitializer<C extends Channel> extends ChannelInitialize
     protected void initChannel(C channel) {
         channel.pipeline().addLast(
                 new StartEndFlagFrameCodec(1024*1024, true, wrappedBuffer(new byte[]{ (byte) 0x7e }))
-                , new EscapeCodec(EscapeMap.mapHex("7e", "7d5e"))
+                , new EscapeCodec(EscapeCodec.EscapeMapping.mapHex("7e", "7d5e"))
                 , new UserCodec()
                 , new MessageEchoHandler()
                 , new LoggingHandler(HEX_DUMP));
