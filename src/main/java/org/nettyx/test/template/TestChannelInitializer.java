@@ -11,6 +11,7 @@ import org.nettyx.test.codec.UserCodec;
 
 import static io.netty.buffer.Unpooled.wrappedBuffer;
 import static io.netty.handler.logging.ByteBufFormat.HEX_DUMP;
+import static org.fz.nettyx.codec.EscapeCodec.EscapeMapping.mapHex;
 
 
 /**
@@ -25,7 +26,7 @@ public class TestChannelInitializer<C extends Channel> extends ChannelInitialize
     protected void initChannel(C channel) {
         channel.pipeline().addLast(
                 new StartEndFlagFrameCodec(1024*1024, true, wrappedBuffer(new byte[]{ (byte) 0x7e }))
-                , new EscapeCodec(EscapeCodec.EscapeMapping.mapHex("7e", "7d5e"))
+                , new EscapeCodec(mapHex("7e", "7d5e"))
                 , new UserCodec()
                 , new MessageEchoHandler()
                 , new LoggingHandler(HEX_DUMP));
