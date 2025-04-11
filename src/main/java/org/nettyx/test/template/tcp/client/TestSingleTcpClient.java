@@ -8,6 +8,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import org.fz.nettyx.listener.ActionChannelFutureListener;
 import org.fz.nettyx.template.tcp.client.SingleTcpChannelClientTemplate;
 import org.nettyx.test.template.TestChannelInitializer;
+import org.springframework.boot.CommandLineRunner;
 
 import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
@@ -15,8 +16,13 @@ import java.util.concurrent.TimeUnit;
 import static org.fz.nettyx.action.ListenerAction.redo;
 import static org.nettyx.test.codec.UserCodec.TEST_USER;
 
+/**
+ * @author fengbinbin
+ * @version 1.0
+ * @since 2024/4/11 15:59
+ */
 
-public class TestSingleTcpClient extends SingleTcpChannelClientTemplate {
+public class TestSingleTcpClient extends SingleTcpChannelClientTemplate implements CommandLineRunner {
 
     public TestSingleTcpClient(InetSocketAddress address) {
         super(address);
@@ -27,7 +33,8 @@ public class TestSingleTcpClient extends SingleTcpChannelClientTemplate {
         return new TestChannelInitializer<>();
     }
 
-    public static void main(String[] args) {
+    @Override
+    public void run(String... args) throws Exception {
         TestSingleTcpClient testClient = new TestSingleTcpClient(new InetSocketAddress(9888));
 
         ChannelFutureListener listener = new ActionChannelFutureListener()
@@ -38,7 +45,8 @@ public class TestSingleTcpClient extends SingleTcpChannelClientTemplate {
                     Console.log(cf.channel().localAddress() + ": ok");
                 })
                 .whenCancelled((ls, cf) -> Console.log("cancel"))
-                .whenFailure(redo(testClient::connect, 10, TimeUnit.SECONDS, 3, (l, c) -> System.err.println("最后次失败后执行")))
+                .whenFailure(redo(testClient::connect, 10, TimeUnit.SECONDS, 3, (l, c) -> System.err.println(
+                        "最后次失败后执行")))
                 .whenDone((ls, cf) -> Console.log("done"));
 
         testClient.connect().addListener(listener);
