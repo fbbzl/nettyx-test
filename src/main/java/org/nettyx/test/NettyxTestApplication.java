@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
+ * this application is for the nettyx testing
  * @author fengbinbin
  * @version 1.0
  * @since 2025/4/11 14:16

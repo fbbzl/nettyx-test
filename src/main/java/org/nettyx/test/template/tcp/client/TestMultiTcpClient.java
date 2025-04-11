@@ -8,6 +8,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import org.fz.nettyx.listener.ActionChannelFutureListener;
 import org.fz.nettyx.template.tcp.client.MultiTcpChannelClientTemplate;
 import org.nettyx.test.template.TestChannelInitializer;
+import org.springframework.boot.CommandLineRunner;
 
 import java.net.InetSocketAddress;
 import java.util.HashMap;
@@ -21,9 +22,9 @@ import static org.nettyx.test.codec.UserCodec.TEST_USER;
 /**
  * @author fengbinbin
  * @version 1.0
- * @since 2024/2/29 14:58
+ * @since 2024/4/11 15:59
  */
-public class TestMultiTcpClient extends MultiTcpChannelClientTemplate<String> {
+public class TestMultiTcpClient extends MultiTcpChannelClientTemplate<String> implements CommandLineRunner {
 
     protected TestMultiTcpClient(Map<String, InetSocketAddress> inetSocketAddressMap) {
         super(inetSocketAddressMap);
@@ -34,7 +35,8 @@ public class TestMultiTcpClient extends MultiTcpChannelClientTemplate<String> {
         return new TestChannelInitializer<>();
     }
 
-    public static void main(String[] args) {
+    @Override
+    public void run(String... args) throws Exception {
         Map<String, InetSocketAddress> map        = new HashMap<>();
         InetSocketAddress              serverAddr = new InetSocketAddress(9888);
         for (int i = 0; i < 32; i++) {
@@ -57,6 +59,5 @@ public class TestMultiTcpClient extends MultiTcpChannelClientTemplate<String> {
                 .whenDone((l, cf) -> Console.log("done"));
 
         testMultiTcp.connectAll().values().forEach(c -> c.addListener(listener));
-
     }
 }

@@ -6,14 +6,15 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import org.fz.nettyx.template.tcp.server.TcpServerTemplate;
 import org.nettyx.test.template.TestChannelInitializer;
+import org.springframework.boot.CommandLineRunner;
 
 
 /**
  * @author fengbinbin
  * @version 1.0
- * @since 2024/3/23 12:40
+ * @since 2024/4/11 15:59
  */
-public class TestServer extends TcpServerTemplate {
+public class TestServer extends TcpServerTemplate implements CommandLineRunner {
 
     public TestServer(int bindPort) {
         super(bindPort);
@@ -24,7 +25,8 @@ public class TestServer extends TcpServerTemplate {
         return new TestChannelInitializer<>();
     }
 
-    public static void main(String[] args) {
+    @Override
+    public void run(String... args) throws Exception {
         TestServer    testServer = new TestServer(9888);
         ChannelFuture bindFuture = testServer.bind();
         bindFuture.addListener(cf -> Console.log("binding state:" + cf.isSuccess()));
@@ -32,6 +34,5 @@ public class TestServer extends TcpServerTemplate {
             Console.log("关闭了");
             testServer.shutdownGracefully();
         });
-
     }
 }
