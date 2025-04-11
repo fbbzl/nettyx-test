@@ -63,7 +63,7 @@ public class TestMultiTcpClient extends MultiTcpChannelClientTemplate<String> im
                     System.err.println(string);
                 }))
                 .whenDone((l, cf) -> Console.log("done"));
-
+        // 如果需要查看tcp连接的请把下面的代码注释去掉
       //  this.connectAll().values().forEach(c -> c.addListener(listener));
     }
 }

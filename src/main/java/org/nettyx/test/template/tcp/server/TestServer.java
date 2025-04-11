@@ -1,7 +1,5 @@
 package org.nettyx.test.template.tcp.server;
 
-import cn.hutool.core.lang.Console;
-import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import org.fz.nettyx.template.tcp.server.TcpServerTemplate;
@@ -20,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class TestServer extends TcpServerTemplate implements CommandLineRunner {
 
-    public TestServer(@Value("${nettyx.text.server.port}") int bindPort) {
+    public TestServer(@Value("${nettyx.test.server.port}") int bindPort) {
         super(bindPort);
     }
 
@@ -31,11 +29,12 @@ public class TestServer extends TcpServerTemplate implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        ChannelFuture bindFuture = this.bind();
-        bindFuture.addListener(cf -> Console.log("binding state:" + cf.isSuccess()));
-        bindFuture.channel().closeFuture().addListener(cf -> {
-            Console.log("关闭了");
-            this.shutdownGracefully();
-        });
+        // 如果需要查看tcp连接的请把下面的代码注释去掉
+//        ChannelFuture bindFuture = this.bind();
+//        bindFuture.addListener(cf -> Console.log("binding state:" + cf.isSuccess()));
+//        bindFuture.channel().closeFuture().addListener(cf -> {
+//            Console.log("关闭了");
+//            this.shutdownGracefully();
+//        });
     }
 }

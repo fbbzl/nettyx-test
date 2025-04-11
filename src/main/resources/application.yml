@@ -1,5 +1,8 @@
 nettyx:
-  text:
+  test:
     server:
       host: 127.1.0.1
       port: 9888
+    comm:
+      rx: COM2
+      tx: COM1

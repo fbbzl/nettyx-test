@@ -14,6 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class NettyxTestApplication {
+
     public static void main(String[] args) {
         StructSerializerContext context = new StructSerializerContext("org.nettyx");
         SpringApplication.run(NettyxTestApplication.class, args);

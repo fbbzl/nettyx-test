@@ -29,8 +29,8 @@ public class TestSingleTcpClient extends SingleTcpChannelClientTemplate implemen
 
 
     public TestSingleTcpClient(
-            @Value("${nettyx.text.server.host}") String address,
-            @Value("${nettyx.text.server.port}") int serverPort) {
+            @Value("${nettyx.test.server.host}") String address,
+            @Value("${nettyx.test.server.port}") int serverPort) {
         super(new InetSocketAddress(address, serverPort));
     }
 
@@ -53,7 +53,7 @@ public class TestSingleTcpClient extends SingleTcpChannelClientTemplate implemen
                         "最后次失败后执行")))
                 .whenDone((ls, cf) -> Console.log("done"));
 
-        // 连接服务器
-        this.connect().addListener(listener);
+        // 如果需要查看tcp连接的请把下面的代码注释去掉
+      //  this.connect().addListener(listener);
     }
 }
