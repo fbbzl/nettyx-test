@@ -1,0 +1,5 @@
+nettyx:
+  text:
+    server:
+      host: 127.1.0.1
+      port: 9888

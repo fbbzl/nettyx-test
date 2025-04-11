@@ -1,10 +1,12 @@
 package org.nettyx.test;
 
+import org.fz.nettyx.serializer.struct.StructSerializerContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * this application is for the nettyx testing
+ *
  * @author fengbinbin
  * @version 1.0
  * @since 2025/4/11 14:16
@@ -13,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class NettyxTestApplication {
     public static void main(String[] args) {
+        StructSerializerContext context = new StructSerializerContext("org.nettyx");
         SpringApplication.run(NettyxTestApplication.class, args);
     }
 }

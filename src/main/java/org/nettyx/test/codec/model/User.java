@@ -25,7 +25,7 @@ public class User<T, W, G> {
     @ToArrayList(size = 50)
     private List<Cppushort> tts;
 
-    private Bom<T, W, G>                                b;
+    private Bom<T, W, G>                                  b;
     @ToArray(length = 50)
     private Bom<T, W, Clong4>[]                           g111fs;
     @ToArrayList(size = 50)
@@ -58,9 +58,9 @@ public class User<T, W, G> {
     private Clong4       clong4;
     private Clong8       clong8;
     private Clonglong    clonglong;
-    private Cshort   cshort;
-    private Cuchar11 cuchar11;
-    private Cuint    cuint;
+    private Cshort       cshort;
+    private Cuchar11     cuchar11;
+    private Cuint        cuint;
     private Culong4      culong4;
     private Culong8      culong8;
     private Culonglong   culonglong;

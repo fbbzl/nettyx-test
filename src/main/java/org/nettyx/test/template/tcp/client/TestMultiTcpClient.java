@@ -9,6 +9,7 @@ import org.fz.nettyx.listener.ActionChannelFutureListener;
 import org.fz.nettyx.template.tcp.client.MultiTcpChannelClientTemplate;
 import org.nettyx.test.template.TestChannelInitializer;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
 import java.util.HashMap;
@@ -24,10 +25,22 @@ import static org.nettyx.test.codec.UserCodec.TEST_USER;
  * @version 1.0
  * @since 2024/4/11 15:59
  */
+
+@Component
 public class TestMultiTcpClient extends MultiTcpChannelClientTemplate<String> implements CommandLineRunner {
 
-    protected TestMultiTcpClient(Map<String, InetSocketAddress> inetSocketAddressMap) {
-        super(inetSocketAddressMap);
+    protected TestMultiTcpClient() {
+        super(mockNewClientMap());
+    }
+
+    private static Map<String, InetSocketAddress> mockNewClientMap() {
+        Map<String, InetSocketAddress> map        = new HashMap<>();
+        InetSocketAddress              serverAddr = new InetSocketAddress(9888);
+        for (int i = 0; i < 32; i++) {
+            map.put("b" + i, serverAddr);
+        }
+
+        return map;
     }
 
     @Override
@@ -37,13 +50,6 @@ public class TestMultiTcpClient extends MultiTcpChannelClientTemplate<String> im
 
     @Override
     public void run(String... args) throws Exception {
-        Map<String, InetSocketAddress> map        = new HashMap<>();
-        InetSocketAddress              serverAddr = new InetSocketAddress(9888);
-        for (int i = 0; i < 32; i++) {
-            map.put("b" + i, serverAddr);
-        }
-
-        TestMultiTcpClient testMultiTcp = new TestMultiTcpClient(map);
         ChannelFutureListener listener = new ActionChannelFutureListener()
                 .whenSuccess((l, cf) -> {
 
@@ -52,12 +58,12 @@ public class TestMultiTcpClient extends MultiTcpChannelClientTemplate<String> im
                     Console.log(cf.channel().localAddress() + ": ok");
                 })
                 .whenCancelled((l, cf) -> Console.log("cancel"))
-                .whenFailure(redo(cf -> testMultiTcp.connect(channelKey(cf)), 2, SECONDS, 2, (l, cf) -> {
+                .whenFailure(redo(cf -> this.connect(channelKey(cf)), 2, SECONDS, 2, (l, cf) -> {
                     String string = channelKey(cf).toString();
                     System.err.println(string);
                 }))
                 .whenDone((l, cf) -> Console.log("done"));
 
-        testMultiTcp.connectAll().values().forEach(c -> c.addListener(listener));
+        this.connectAll().values().forEach(c -> c.addListener(listener));
     }
 }

@@ -5,7 +5,6 @@ import cn.hutool.core.lang.Console;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import org.fz.nettyx.codec.StructCodec;
-import org.fz.nettyx.serializer.struct.StructSerializerContext;
 import org.fz.nettyx.serializer.struct.basic.c.signed.Cint;
 import org.fz.nettyx.serializer.struct.basic.c.signed.Clong4;
 import org.fz.nettyx.serializer.struct.basic.c.unsigned.Culong8;
@@ -21,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class UserCodec extends StructCodec<User<Clong4, Wife<Culong8, Son<Clong4, Bill>>, GirlFriend>> {
 
-    private static final StructSerializerContext context = new StructSerializerContext("org.nettyx.test");
+
 
     public static final User<Clong4, Wife<Culong8, Son<Clong4, Bill>>, GirlFriend> TEST_USER;
 
