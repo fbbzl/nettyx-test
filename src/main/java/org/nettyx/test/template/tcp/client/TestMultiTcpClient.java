@@ -64,6 +64,6 @@ public class TestMultiTcpClient extends MultiTcpChannelClientTemplate<String> im
                 }))
                 .whenDone((l, cf) -> Console.log("done"));
 
-        this.connectAll().values().forEach(c -> c.addListener(listener));
+      //  this.connectAll().values().forEach(c -> c.addListener(listener));
     }
 }
