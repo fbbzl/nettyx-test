@@ -1,4 +1,12 @@
 
+#2025/4/13:
+#netty并没有提供springboot的起步依赖,这里仅仅只是配置了一个包扫描的地址
+#nettyx的起步依赖没啥好封装的, 你们自己写吧
+#nettyx的包扫描路径没有默认值, 请一定要配置!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+nettyx:
+  struct:
+    scan-packages: org.nettyx.test
+
 comm-test:
   enable: true
   comm:

@@ -1,6 +1,7 @@
 package org.nettyx.test.config;
 
 import org.fz.nettyx.serializer.struct.StructSerializerContext;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 public class SerializerConfiguration {
 
     @Bean
-    public StructSerializerContext structSerializerContext() {
-        return new StructSerializerContext("org.nettyx");
+    public StructSerializerContext structSerializerContext(@Value("${nettyx.struct.scan-packages:org.nettyx.test}") String scanPackages) {
+        return new StructSerializerContext(scanPackages);
     }
 }
