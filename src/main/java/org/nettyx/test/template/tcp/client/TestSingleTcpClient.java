@@ -54,6 +54,6 @@ public class TestSingleTcpClient extends SingleTcpChannelClientTemplate implemen
                 .whenDone((ls, cf) -> Console.log("done"));
 
         // 如果需要查看tcp连接的请把下面的代码注释去掉
-      //  this.connect().addListener(listener);
+        this.connect().addListener(listener);
     }
 }

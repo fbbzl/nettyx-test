@@ -25,9 +25,9 @@ import static org.nettyx.test.codec.UserCodec.TEST_USER;
  */
 
 @Component
-public class TestSingleJscRx extends SingleJscChannelTemplate implements CommandLineRunner {
+public class TestSingleJsc extends SingleJscChannelTemplate implements CommandLineRunner {
 
-    public TestSingleJscRx(@Value("${nettyx.test.comm.rx}") String commAddress) {
+    public TestSingleJsc(@Value("${nettyx.test.comm.rx}") String commAddress) {
         super(commAddress);
     }
 
@@ -50,10 +50,6 @@ public class TestSingleJscRx extends SingleJscChannelTemplate implements Command
                 .whenDone((l, cf) -> Console.log("done"));
 
         this.connect().addListener(listener);
-
-        // send msg
-        this.write("this is msg from 5 write");
-        this.writeAndFlush("this is msg from 6 writeAndFlush");
     }
 
     @Override
