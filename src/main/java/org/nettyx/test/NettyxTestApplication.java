@@ -17,4 +17,5 @@ public class NettyxTestApplication {
     public static void main(String[] args) {
         SpringApplication.run(NettyxTestApplication.class, args);
     }
+
 }
