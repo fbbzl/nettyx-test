@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 public class SerializerConfiguration {
 
     @Bean
-    public StructSerializerContext StructSerializerContext() {
+    public StructSerializerContext structSerializerContext() {
         return new StructSerializerContext("org.nettyx");
     }
 }
