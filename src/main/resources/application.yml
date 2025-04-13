@@ -1,8 +1,13 @@
-nettyx:
-  test:
-    server:
-      host: 127.1.0.1
-      port: 9888
-    comm:
-      rx: COM2
-      tx: COM1
+
+
+comm-test:
+  enable: true
+  comm:
+    rx: COM2
+    tx: COM3
+
+tcp-test:
+  enable: true
+  server:
+    host: 127.1.0.1
+    port: 9888

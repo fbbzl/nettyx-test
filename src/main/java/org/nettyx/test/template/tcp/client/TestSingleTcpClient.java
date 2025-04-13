@@ -8,9 +8,7 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import org.fz.nettyx.listener.ActionChannelFutureListener;
 import org.fz.nettyx.template.tcp.client.SingleTcpChannelClientTemplate;
 import org.nettyx.test.template.TestChannelInitializer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
@@ -24,13 +22,10 @@ import static org.nettyx.test.codec.UserCodec.TEST_USER;
  * @since 2024/4/11 15:59
  */
 
-@Component
 public class TestSingleTcpClient extends SingleTcpChannelClientTemplate implements CommandLineRunner {
 
 
-    public TestSingleTcpClient(
-            @Value("${nettyx.test.server.host}") String address,
-            @Value("${nettyx.test.server.port}") int serverPort) {
+    public TestSingleTcpClient(String address, int serverPort) {
         super(new InetSocketAddress(address, serverPort));
     }
 
@@ -41,19 +36,15 @@ public class TestSingleTcpClient extends SingleTcpChannelClientTemplate implemen
 
     @Override
     public void run(String... args) throws Exception {
-        ChannelFutureListener listener = new ActionChannelFutureListener()
-                .whenSuccess((ls, cf) -> {
+        ChannelFutureListener listener = new ActionChannelFutureListener().whenSuccess((ls, cf) -> {
 
-                    this.writeAndFlush(TEST_USER);
+            this.writeAndFlush(TEST_USER);
 
-                    Console.log(cf.channel().localAddress() + ": ok");
-                })
-                .whenCancelled((ls, cf) -> Console.log("cancel"))
-                .whenFailure(redo(this::connect, 10, TimeUnit.SECONDS, 3, (l, c) -> System.err.println(
-                        "最后次失败后执行")))
-                .whenDone((ls, cf) -> Console.log("done"));
+            Console.log(cf.channel().localAddress() + ": ok");
+        }).whenCancelled((ls, cf) -> Console.log("cancel")).whenFailure(redo(this::connect, 10, TimeUnit.SECONDS, 3,
+                                                                             (l, c) -> System.err.println("最后次失败后执行"))).whenDone((ls, cf) -> Console.log("done"))
+                ;
 
-        // 如果需要查看tcp连接的请把下面的代码注释去掉
         this.connect().addListener(listener);
     }
 }

@@ -1,4 +1,4 @@
-package org.nettyx.test.template.jsc;
+package org.nettyx.test.template.comm.jsc;
 
 
 import cn.hutool.core.lang.Console;
@@ -9,9 +9,7 @@ import org.fz.nettyx.channel.serial.jsc.JscChannelConfig;
 import org.fz.nettyx.listener.ActionChannelFutureListener;
 import org.fz.nettyx.template.serial.jsc.SingleJscChannelTemplate;
 import org.nettyx.test.template.TestChannelInitializer;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
@@ -24,10 +22,10 @@ import static org.nettyx.test.codec.UserCodec.TEST_USER;
  * @since 2024/4/11 15:59
  */
 
-@Component
+
 public class TestSingleJsc extends SingleJscChannelTemplate implements CommandLineRunner {
 
-    public TestSingleJsc(@Value("${nettyx.test.comm.rx}") String commAddress) {
+    public TestSingleJsc(String commAddress) {
         super(commAddress);
     }
 
@@ -47,7 +45,8 @@ public class TestSingleJsc extends SingleJscChannelTemplate implements CommandLi
 
                     c.cause().printStackTrace();
                 }))
-                .whenDone((l, cf) -> Console.log("done"));
+                .whenDone((l, cf) -> Console.log("done"))
+                ;
 
         this.connect().addListener(listener);
     }
@@ -60,7 +59,8 @@ public class TestSingleJsc extends SingleJscChannelTemplate implements CommandLi
                 .setStopBits(JscChannelConfig.StopBits.STOP_BITS_1)
                 .setParityBit(JscChannelConfig.ParityBit.NO)
                 .setDtr(false)
-                .setRts(false);
+                .setRts(false)
+        ;
     }
 
 
