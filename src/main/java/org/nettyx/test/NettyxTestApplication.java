@@ -1,6 +1,5 @@
 package org.nettyx.test;
 
-import org.fz.nettyx.serializer.struct.StructSerializerContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -16,7 +15,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class NettyxTestApplication {
 
     public static void main(String[] args) {
-        StructSerializerContext context = new StructSerializerContext("org.nettyx");
         SpringApplication.run(NettyxTestApplication.class, args);
     }
 }
