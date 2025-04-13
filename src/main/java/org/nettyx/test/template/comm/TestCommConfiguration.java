@@ -18,12 +18,12 @@ import org.springframework.context.annotation.Configuration;
 public class TestCommConfiguration {
 
     @Bean
-    public TestSingleJsc jscClient(@Value("${nettyx.test.comm.tx}") String commAddress) {
+    public TestSingleJsc jscClient(@Value("${comm-test.comm.rx}") String commAddress) {
         return new TestSingleJsc(commAddress);
     }
 
     @Bean
-    public TestSingleRxtx rxtxClient(@Value("${nettyx.test.comm.rx}") String commAddress) {
+    public TestSingleRxtx rxtxClient(@Value("${comm-test.comm.tx}") String commAddress) {
         return new TestSingleRxtx(commAddress);
     }
 
