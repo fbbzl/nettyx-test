@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version 1.0
  * @since 2025/4/11 14:16
  */
-@EnableStructScan(basePackages = {"org.nettyx", "org"})
+@EnableStructScan(basePackages = { "org.nettyx", "org" })
 @SpringBootApplication
 public class NettyxTestApplication {
 
