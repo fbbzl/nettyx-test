@@ -40,7 +40,7 @@ public class TestTcpConfiguration {
             @Value("${tcp-test.server.port}") int port) {
         Map<String, InetSocketAddress> map        = new HashMap<>();
         InetSocketAddress              serverAddr = new InetSocketAddress(host, port);
-        for (int i = 0; i < 32; i++) {
+        for (int i = 0; i < 4; i++) {
             map.put("b" + i, serverAddr);
         }
         return new TestMultiTcpClient(map);
