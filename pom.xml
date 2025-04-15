@@ -13,8 +13,6 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <nettyx.version>2.3.25-RELEASE</nettyx.version>
-
         <!--base-->
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -36,6 +34,7 @@
         <!--log-->
         <disruptor.version>3.4.4</disruptor.version>
 
+        <spring-boot-starter-nettyx.version>2.3.25-RELEASE</spring-boot-starter-nettyx.version>
     </properties>
 
     <dependencies>
@@ -108,8 +107,8 @@
 
         <dependency>
             <groupId>io.github.fbbzl</groupId>
-            <artifactId>nettyx</artifactId>
-            <version>${nettyx.version}</version>
+            <artifactId>spring-boot-starter-nettyx</artifactId>
+            <version>${spring-boot-starter-nettyx.version}</version>
         </dependency>
 
     </dependencies>
