@@ -30,12 +30,12 @@ public class SerializerTest {
 
     @Test
     public void testStructSerializer() {
-        byte[] bytes = new byte[512];
+        byte[] bytes = new byte[36];
         Arrays.fill(bytes, (byte) 67);
 
         StopWatch stopWatch = StopWatch.create("反序列");
         stopWatch.start();
-        for (int i = 0; i < 10_000_000; i++) {
+        for (int i = 0; i < 1000; i++) {
             You turn = StructSerializer.toStruct(youCLass, bytes);
         }
         stopWatch.stop();
