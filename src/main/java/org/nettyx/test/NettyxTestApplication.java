@@ -1,6 +1,6 @@
 package org.nettyx.test;
 
-import org.fz.nettyx.starter.annotation.EnableStructSerializerScan;
+import org.fz.nettyx.starter.annotation.EnableStructScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version 1.0
  * @since 2025/4/11 14:16
  */
-@EnableStructSerializerScan(basePackages = { "org.nettyx.test" })
+@EnableStructScan(basePackages = { "org.nettyx.test" })
 @SpringBootApplication
 public class NettyxTestApplication {
 
