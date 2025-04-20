@@ -3,12 +3,9 @@ package serializer;
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.lang.Console;
 import codec.model.You;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import org.fz.nettyx.serializer.struct.StructSerializer;
 import org.fz.nettyx.serializer.struct.StructSerializerContext;
 import org.fz.nettyx.serializer.struct.TypeRefer;
-import org.fz.nettyx.serializer.struct.basic.c.signed.Cchar;
 import org.fz.nettyx.serializer.struct.basic.c.signed.Clong4;
 import org.fz.nettyx.serializer.struct.basic.c.signed.Clong8;
 import org.junit.Test;
@@ -35,12 +32,11 @@ public class SerializerTest {
     public void testStructSerializer() {
         byte[] bytes = new byte[36];
         Arrays.fill(bytes, (byte) 67);
-        ByteBuf   byteBuf   = Unpooled.wrappedBuffer(bytes);
+
         StopWatch stopWatch = StopWatch.create("反序列");
         stopWatch.start();
-        for (int i = 0; i < 100_000; i++) {
-            You you = StructSerializer.toStruct(youCLass, byteBuf.resetReaderIndex());
-            Cchar sex = you.getSex();
+        for (int i = 0; i < 1000; i++) {
+            You turn = StructSerializer.toStruct(youCLass, bytes);
         }
         stopWatch.stop();
         Console.print(stopWatch.prettyPrint(TimeUnit.MILLISECONDS));
