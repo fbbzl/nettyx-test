@@ -6,9 +6,9 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import org.fz.nettyx.codec.StructCodec;
 import org.fz.nettyx.serializer.struct.StructSerializer;
-import org.fz.nettyx.serializer.struct.TypeRefer;
 import org.fz.nettyx.serializer.struct.basic.c.signed.Clong4;
 import org.fz.nettyx.serializer.struct.basic.c.unsigned.Culong8;
+import org.fz.nettyx.util.TypeRefer;
 import org.nettyx.test.codec.model.*;
 
 import java.util.Arrays;
