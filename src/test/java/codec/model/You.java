@@ -22,5 +22,11 @@ public class You {
     Cdouble     platformId;
     Clong8      description;
     Culong8     interest;
+    Cint        isMarried1;
+    Cchar       sex1;
+    Cfloat      address1;
+    Cdouble     platformId1;
+    Clong8      description1;
+    Culong8     interest1;
 
 }
