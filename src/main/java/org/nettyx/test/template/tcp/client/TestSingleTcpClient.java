@@ -36,14 +36,15 @@ public class TestSingleTcpClient extends SingleTcpChannelClientTemplate implemen
 
     @Override
     public void run(String... args) throws Exception {
-        ChannelFutureListener listener = new ActionChannelFutureListener().whenSuccess((ls, cf) -> {
+        ChannelFutureListener listener = new ActionChannelFutureListener()
+                .whenSuccess((ls, cf) -> {
 
-            this.writeAndFlush(TEST_USER);
+                    this.writeAndFlush(TEST_USER);
 
-            Console.log(cf.channel().localAddress() + ": ok");
-        }).whenCancelled((ls, cf) -> Console.log("cancel")).whenFailure(redo(this::connect, 10, TimeUnit.SECONDS, 3,
-                                                                             (l, c) -> System.err.println("最后次失败后执行"))).whenDone((ls, cf) -> Console.log("done"))
-                ;
+                    Console.log(cf.channel().localAddress() + ": ok");
+                })
+                .whenCancelled((ls, cf) -> Console.log("cancel"))
+                .whenFailure(redo(this::connect, 10, TimeUnit.SECONDS, 3, (l, c) -> System.err.println("最后次失败后执行"))).whenDone((ls, cf) -> Console.log("done"));
 
         this.connect().addListener(listener);
     }
