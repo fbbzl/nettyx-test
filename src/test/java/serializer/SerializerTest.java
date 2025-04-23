@@ -30,7 +30,7 @@ public class SerializerTest {
 
     @Test
     public void testStructSerializer() {
-        byte[] bytes = new byte[36];
+        byte[] bytes = new byte[88];
         Arrays.fill(bytes, (byte) 67);
 
         StopWatch stopWatch = StopWatch.create("反序列");
