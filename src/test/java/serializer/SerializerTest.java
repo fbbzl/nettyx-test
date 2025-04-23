@@ -5,9 +5,9 @@ import cn.hutool.core.lang.Console;
 import codec.model.You;
 import org.fz.nettyx.serializer.struct.StructSerializer;
 import org.fz.nettyx.serializer.struct.StructSerializerContext;
-import org.fz.nettyx.serializer.struct.TypeRefer;
 import org.fz.nettyx.serializer.struct.basic.c.signed.Clong4;
 import org.fz.nettyx.serializer.struct.basic.c.signed.Clong8;
+import org.fz.nettyx.util.TypeRefer;
 import org.junit.Test;
 import org.nettyx.test.codec.model.*;
 
@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 public class SerializerTest {
     static final TypeRefer<User<Bill, Wife<GirlFriend, Son<Clong4, Bill>>, Clong8>> userTypeRefer =
             new TypeRefer<User<Bill,
-                    Wife<GirlFriend, Son<Clong4, Bill>>, Clong8>>() {
+                                Wife<GirlFriend, Son<Clong4, Bill>>, Clong8>>() {
             };
 
     static final Class<You> youCLass = You.class;
