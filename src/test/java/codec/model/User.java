@@ -3,7 +3,10 @@ package codec.model;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
-import org.fz.nettyx.serializer.struct.annotation.*;
+import org.fz.nettyx.serializer.struct.annotation.Struct;
+import org.fz.nettyx.serializer.struct.annotation.ToArray;
+import org.fz.nettyx.serializer.struct.annotation.ToArrayList;
+import org.fz.nettyx.serializer.struct.annotation.ToNamedEnum;
 import org.fz.nettyx.serializer.struct.basic.c.signed.*;
 import org.fz.nettyx.serializer.struct.basic.c.unsigned.*;
 import org.fz.nettyx.serializer.struct.basic.cpp.CppBool;
@@ -23,7 +26,7 @@ public class User<T, W, G> {
     Clong4 uid;
     @ToArray(length = 5)
     Cppushort[]     qqNames;
-    @ToLinkedList(size = 5)
+    @ToArrayList(size = 5)
     List<Cppushort> ss;
     @ToArrayList(size = 5)
     List<Cppushort> tts;
