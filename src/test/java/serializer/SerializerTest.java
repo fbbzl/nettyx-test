@@ -2,11 +2,14 @@ package serializer;
 
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.lang.Console;
+import codec.ComplexStruct;
+import codec.ExampleStruct;
 import codec.model.You;
 import org.fz.nettyx.serializer.struct.StructSerializer;
 import org.fz.nettyx.serializer.struct.StructSerializerContext;
 import org.fz.nettyx.serializer.struct.basic.c.signed.Clong4;
 import org.fz.nettyx.serializer.struct.basic.c.signed.Clong8;
+import org.fz.nettyx.util.HexKit;
 import org.fz.nettyx.util.TypeRefer;
 import org.junit.Test;
 import org.nettyx.test.codec.model.*;
@@ -26,8 +29,26 @@ public class SerializerTest {
             };
 
     static final Class<You> youCLass = You.class;
-    private static final StructSerializerContext context = new StructSerializerContext("codec.model");
+    private static final StructSerializerContext context = new StructSerializerContext("codec");
 
+
+    @Test
+    public void testComplexStructSerializer() {
+        byte[] bytes = HexKit.decode("39300000C3F54840572E1640F304B53F4B696D69000000000000802A00182D4444FB210940");
+
+        ComplexStruct struct = StructSerializer.toStruct(ComplexStruct.class, bytes);
+
+        System.err.println(struct);
+    }
+
+    @Test
+    public void testExampleStructSerializer() {
+        byte[] bytes = HexKit.decode("39300000C3F5484048656C6C6F576F726C64000000000000");
+
+        ExampleStruct struct = StructSerializer.toStruct(ExampleStruct.class, bytes);
+
+        System.err.println(struct);
+    }
     @Test
     public void testStructSerializer() {
         byte[] bytes = new byte[88];
