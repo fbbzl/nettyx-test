@@ -4,6 +4,7 @@ import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.lang.Console;
 import codec.ComplexStruct;
 import codec.ExampleStruct;
+import codec.OutComplexStruct;
 import codec.TestStruct;
 import codec.model.You;
 import io.netty.buffer.ByteBuf;
@@ -33,12 +34,24 @@ public class SerializerTest {
     static final Class<You> youCLass = You.class;
     private static final StructSerializerContext context = new StructSerializerContext("codec");
 
+
+
+    @Test
+    public void testTestStructNestedSerializer() {
+        byte[] bytes = HexKit.decode("39300000802A00C3F5484048656C6C6F0000000000182D4444FB2109406400572E16400102030405");
+
+        OutComplexStruct struct = StructSerializer.toStruct(OutComplexStruct.class, bytes);
+        System.err.println(struct.getFlags().getValue());
+        System.err.println(struct);
+    }
+
+
     @Test
     public void testTestStructSerializer() {
         byte[] bytes = HexKit.decode("39300000802A00C3F5484048656C6C6F0000000000182D4444FB210940");
 
         TestStruct struct = StructSerializer.toStruct(TestStruct.class, bytes);
-
+        System.err.println(struct.getFlags().getValue());
         System.err.println(struct);
     }
 
