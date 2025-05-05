@@ -4,7 +4,9 @@ import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.lang.Console;
 import codec.ComplexStruct;
 import codec.ExampleStruct;
+import codec.TestStruct;
 import codec.model.You;
+import io.netty.buffer.ByteBuf;
 import org.fz.nettyx.serializer.struct.StructSerializer;
 import org.fz.nettyx.serializer.struct.StructSerializerContext;
 import org.fz.nettyx.serializer.struct.basic.c.signed.Clong4;
@@ -31,6 +33,14 @@ public class SerializerTest {
     static final Class<You> youCLass = You.class;
     private static final StructSerializerContext context = new StructSerializerContext("codec");
 
+    @Test
+    public void testTestStructSerializer() {
+        byte[] bytes = HexKit.decode("39300000802A00C3F5484048656C6C6F0000000000182D4444FB210940");
+
+        TestStruct struct = StructSerializer.toStruct(TestStruct.class, bytes);
+
+        System.err.println(struct);
+    }
 
     @Test
     public void testComplexStructSerializer() {
@@ -53,11 +63,11 @@ public class SerializerTest {
     public void testStructSerializer() {
         byte[] bytes = new byte[88];
         Arrays.fill(bytes, (byte) 67);
-
+        You turn = StructSerializer.toStruct(youCLass, bytes);
         StopWatch stopWatch = StopWatch.create("反序列");
         stopWatch.start();
         for (int i = 0; i < 1_000_000; i++) {
-            You turn = StructSerializer.toStruct(youCLass, bytes);
+            ByteBuf byteBuf = StructSerializer.toByteBuf(youCLass, turn);
         }
         stopWatch.stop();
         Console.print(stopWatch.prettyPrint(TimeUnit.MILLISECONDS));
