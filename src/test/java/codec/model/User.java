@@ -71,9 +71,9 @@ public class User<T, W, G> {
     Culong8      culong8;
     Culonglong   culonglong;
     Cushort      cushort;
-    Cpp8tchar    cpp8tchar;
-    Cpp16tchar   cpp16tchar;
-    Cpp32tchar   cpp32tchar;
+    Cpp8charT    cpp8tchar;
+    Cpp16charT   cpp16tchar;
+    Cpp32charT   cpp32tchar;
     Cppdouble    cppdouble;
     Cppfloat     cppfloat;
     Cppint       cppint;
