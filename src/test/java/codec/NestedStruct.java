@@ -2,8 +2,9 @@ package codec;
 
 import lombok.Data;
 import org.fz.nettyx.serializer.struct.annotation.Struct;
-import org.fz.nettyx.serializer.struct.basic.c.signed.Cfloat;
-import org.fz.nettyx.serializer.struct.basic.c.stdint.unsigned.Cuint16T;
+import org.fz.nettyx.serializer.struct.basic.c.signed.cfloat;
+import org.fz.nettyx.serializer.struct.basic.c.stdint.unsigned.cuint16_t;
+
 
 /**
  * @author fengbinbin
@@ -13,6 +14,6 @@ import org.fz.nettyx.serializer.struct.basic.c.stdint.unsigned.Cuint16T;
 @Data
 @Struct
 public class NestedStruct {
-    Cuint16T nestedId;         // 2字节无符号整数
-    Cfloat   nestedValue;         // 4字节浮点数
+    cuint16_t nestedId;         // 2字节无符号整数
+    cfloat    nestedValue;         // 4字节浮点数
 }

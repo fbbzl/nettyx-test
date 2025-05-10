@@ -6,8 +6,8 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import org.fz.nettyx.codec.StructCodec;
 import org.fz.nettyx.serializer.struct.StructSerializer;
-import org.fz.nettyx.serializer.struct.basic.c.signed.Clong4;
-import org.fz.nettyx.serializer.struct.basic.c.unsigned.Culong8;
+import org.fz.nettyx.serializer.struct.basic.c.signed.clong4;
+import org.fz.nettyx.serializer.struct.basic.c.unsigned.culong8;
 import org.fz.nettyx.util.TypeRefer;
 import org.nettyx.test.codec.model.*;
 
@@ -20,13 +20,13 @@ import java.util.concurrent.TimeUnit;
  * @version 1.0
  * @since 2024/7/26 19:52
  */
-public class UserCodec extends StructCodec<User<Clong4, Wife<Culong8, Son<Clong4, Bill>>, GirlFriend>> {
+public class UserCodec extends StructCodec<User<clong4, Wife<culong8, Son<clong4, Bill>>, GirlFriend>> {
 
-    public static final User<Clong4, Wife<Culong8, Son<Clong4, Bill>>, GirlFriend> TEST_USER;
+    public static final User<clong4, Wife<culong8, Son<clong4, Bill>>, GirlFriend> TEST_USER;
 
     static {
-        TypeRefer<User<Clong4, Wife<Culong8, Son<Clong4, Bill>>, GirlFriend>> typeRefer = new TypeRefer<User<Clong4,
-                Wife<Culong8, Son<Clong4, Bill>>, GirlFriend>>() {};
+        TypeRefer<User<clong4, Wife<culong8, Son<clong4, Bill>>, GirlFriend>> typeRefer = new TypeRefer<User<clong4,
+                Wife<culong8, Son<clong4, Bill>>, GirlFriend>>() {};
         byte[] bytes = new byte[8000];
         Arrays.fill(bytes, (byte) 67);
 
@@ -34,7 +34,7 @@ public class UserCodec extends StructCodec<User<Clong4, Wife<Culong8, Son<Clong4
     }
 
     @Override
-    protected void encode(ChannelHandlerContext ctx, User<Clong4, Wife<Culong8, Son<Clong4, Bill>>, GirlFriend> msg,
+    protected void encode(ChannelHandlerContext ctx, User<clong4, Wife<culong8, Son<clong4, Bill>>, GirlFriend> msg,
                           ByteBuf out) {
         StopWatch stopWatch = StopWatch.create("encode");
         stopWatch.start("encode");

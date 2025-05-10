@@ -3,7 +3,7 @@ package codec.model;
 import lombok.Data;
 import org.fz.nettyx.serializer.struct.annotation.Struct;
 import org.fz.nettyx.serializer.struct.basic.c.signed.*;
-import org.fz.nettyx.serializer.struct.basic.c.unsigned.Culong8;
+import org.fz.nettyx.serializer.struct.basic.c.unsigned.culong8;
 
 /**
  * @author fengbinbin
@@ -15,18 +15,18 @@ import org.fz.nettyx.serializer.struct.basic.c.unsigned.Culong8;
 @Struct
 public class You {
 
-    Cchar       uname;
-    Cint        isMarried;
-    Cchar       sex;
-    Cfloat      address;
-    Cdouble     platformId;
-    Clong8      description;
-    Culong8     interest;
-    Cint        isMarried1;
-    Cchar       sex1;
-    Cfloat      address1;
-    Cdouble     platformId1;
-    Clong8      description1;
-    Culong8     interest1;
+    cchar   uname;
+    cint    isMarried;
+    cchar   sex;
+    cfloat  address;
+    cdouble platformId;
+    clong8  description;
+    culong8 interest;
+    cint    isMarried1;
+    cchar   sex1;
+    cfloat  address1;
+    cdouble platformId1;
+    clong8  description1;
+    culong8 interest1;
 
 }
