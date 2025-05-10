@@ -14,7 +14,8 @@ import org.springframework.boot.CommandLineRunner;
 import java.util.concurrent.TimeUnit;
 
 import static org.fz.nettyx.action.ListenerAction.redo;
-import static org.nettyx.test.codec.UserCodec.TEST_USER;
+import static org.nettyx.test.codec.UserCodec.TEST_MSG;
+
 
 /**
  * @author fengbinbin
@@ -38,7 +39,7 @@ public class TestSingleJsc extends SingleJscChannelTemplate implements CommandLi
     public void run(String... args) throws Exception {
         ChannelFutureListener listener = new ActionChannelFutureListener()
                 .whenSuccess((l, cf) -> {
-                    this.writeAndFlush(TEST_USER);
+                    this.writeAndFlush(TEST_MSG);
                 })
                 .whenCancelled((l, cf) -> Console.log("cancel"))
                 .whenFailure(redo(this::connect, 2, TimeUnit.MILLISECONDS, 3, (l, c) -> {
