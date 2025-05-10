@@ -15,7 +15,7 @@ import java.util.Map;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static org.fz.nettyx.action.ListenerAction.redo;
-import static org.nettyx.test.codec.UserCodec.TEST_USER;
+import static org.nettyx.test.codec.UserCodec.TEST_MSG;
 
 
 /**
@@ -40,7 +40,7 @@ public class TestMultiTcpClient extends MultiTcpChannelClientTemplate<String> im
         ChannelFutureListener listener = new ActionChannelFutureListener()
                 .whenSuccess((l, cf) -> {
 
-                    cf.channel().writeAndFlush(TEST_USER);
+                    cf.channel().writeAndFlush(TEST_MSG);
 
                     Console.log(cf.channel().localAddress() + ": ok");
                 })
