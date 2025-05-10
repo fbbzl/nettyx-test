@@ -41,7 +41,7 @@ public class UserCodec extends StructCodec<User<clong4, Wife<culong8, Son<clong4
         super.encode(ctx, msg, out);
         stopWatch.stop();
 
-        Console.log(stopWatch.prettyPrint(TimeUnit.MICROSECONDS));
+        Console.log(stopWatch.prettyPrint(TimeUnit.MILLISECONDS));
     }
 
     @Override
@@ -51,6 +51,6 @@ public class UserCodec extends StructCodec<User<clong4, Wife<culong8, Son<clong4
         super.decode(ctx, msg, out);
         stopWatch.stop();
 
-        Console.log(stopWatch.prettyPrint(TimeUnit.MICROSECONDS));
+        Console.log(stopWatch.prettyPrint(TimeUnit.MILLISECONDS));
     }
 }
