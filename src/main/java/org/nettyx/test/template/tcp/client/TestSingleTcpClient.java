@@ -14,7 +14,7 @@ import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
 
 import static org.fz.nettyx.action.ListenerAction.redo;
-import static org.nettyx.test.codec.UserCodec.TEST_MSG;
+import static org.nettyx.test.codec.MsgCodec.TEST_MSG;
 
 
 /**

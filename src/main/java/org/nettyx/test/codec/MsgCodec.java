@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  * @version 1.0
  * @since 2024/7/26 19:52
  */
-public class UserCodec extends StructCodec<Msg> {
+public class MsgCodec extends StructCodec<Msg> {
 
 
     public static final Msg TEST_MSG;
