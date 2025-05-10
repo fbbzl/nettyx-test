@@ -20,10 +20,10 @@ import java.util.concurrent.TimeUnit;
  * @version 1.0
  * @since 2024/7/26 19:52
  */
-public class UserCodec extends StructCodec<User<clong4, Wife<culong8, Son<clong4, Bill>>, GirlFriend>> {
+public class UserCodec extends StructCodec<Msg> {
 
-    public static final User<clong4, Wife<culong8, Son<clong4, Bill>>, GirlFriend> TEST_USER;
-    public static final Msg                                                        TEST_MSG;
+
+    public static final Msg TEST_MSG;
 
     static {
         TypeRefer<User<clong4, Wife<culong8, Son<clong4, Bill>>, GirlFriend>> typeRefer = new TypeRefer<User<clong4,
@@ -31,14 +31,15 @@ public class UserCodec extends StructCodec<User<clong4, Wife<culong8, Son<clong4
         byte[] bytes = new byte[8000];
         Arrays.fill(bytes, (byte) 67);
 
-        TEST_USER = StructSerializer.toStruct(typeRefer, bytes);
-        TEST_MSG  = StructSerializer.toStruct(Msg.class, bytes);
+        TEST_MSG = StructSerializer.toStruct(Msg.class, bytes);
 
     }
 
     @Override
-    protected void encode(ChannelHandlerContext ctx, User<clong4, Wife<culong8, Son<clong4, Bill>>, GirlFriend> msg,
-                          ByteBuf out) {
+    protected void encode(
+            ChannelHandlerContext ctx,
+            Msg msg,
+            ByteBuf out) {
         StopWatch stopWatch = StopWatch.create("encode");
         stopWatch.start("encode");
         super.encode(ctx, msg, out);
@@ -48,7 +49,10 @@ public class UserCodec extends StructCodec<User<clong4, Wife<culong8, Son<clong4
     }
 
     @Override
-    protected void decode(ChannelHandlerContext ctx, ByteBuf msg, List<Object> out) {
+    protected void decode(
+            ChannelHandlerContext ctx,
+            ByteBuf msg,
+            List<Object> out) {
         StopWatch stopWatch = StopWatch.create("decode");
         stopWatch.start("decode");
         super.decode(ctx, msg, out);
