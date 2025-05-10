@@ -28,5 +28,46 @@ public class Msg {
     cdouble platformId1;
     clong8  description1;
     culong8 interest1;
+    cint    isMarried2;
+    cchar   sex2;
+    cfloat  address2;
+    cdouble platformId2;
+    clong8  description2;
+    culong8 interest2;
+    culong8 interest12;
+    cint    isMarried22;
+
+    cfloat  address22;
+    cdouble platformId22;
+    clong8  description22;
+    culong8 interest22;
+    cfloat  address12;
+    cdouble platformId12;
+    clong8  description12;
+    culong8 interest121;
+    cint    isMarried222;
+    cchar   sex22;
+    cfloat  address222;
+    cdouble platfo2rmId22;
+    clong8  descriptio2n22;
+    culong8 intere2st22;
+    culong8 interest1222;
+    cint    isMarried2222;
+    cfloat  address2222;
+    cdouble platformId222;
+    clong8  description222;
+    culong8 interest222;
+
+    cchar   sex2222;
+    cfloat  address22222;
+    cdouble platfo2rmId2222;
+    clong8  descriptio2n2222;
+    culong8 intere2st2222;
+    culong8 interest122222;
+    cint    isMarried222222;
+    cfloat  address222222;
+    cdouble platformId22222;
+    clong8  description22222;
+    culong8 interest22222;
 
 }

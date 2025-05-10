@@ -6,10 +6,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import org.fz.nettyx.codec.StructCodec;
 import org.fz.nettyx.serializer.struct.StructSerializer;
-import org.fz.nettyx.serializer.struct.basic.c.signed.clong4;
-import org.fz.nettyx.serializer.struct.basic.c.unsigned.culong8;
-import org.fz.nettyx.util.TypeRefer;
-import org.nettyx.test.codec.model.*;
+import org.nettyx.test.codec.model.Msg;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,13 +23,12 @@ public class MsgCodec extends StructCodec<Msg> {
     public static final Msg TEST_MSG;
 
     static {
-        TypeRefer<User<clong4, Wife<culong8, Son<clong4, Bill>>, GirlFriend>> typeRefer = new TypeRefer<User<clong4,
-                Wife<culong8, Son<clong4, Bill>>, GirlFriend>>() {};
-        byte[] bytes = new byte[8000];
+        byte[] bytes = new byte[400];
         Arrays.fill(bytes, (byte) 67);
 
         TEST_MSG = StructSerializer.toStruct(Msg.class, bytes);
-
+        byte[] bytes1 = StructSerializer.toBytes(TEST_MSG);
+        System.err.println();
     }
 
     @Override

@@ -28,18 +28,5 @@ public class You {
     cdouble platformId1;
     clong8  description1;
     culong8 interest1;
-    cint    isMarried2;
-    cchar   sex2;
-    cfloat  address2;
-    cdouble platformId2;
-    clong8  description2;
-    culong8 interest2;
-    culong8 interest12;
-    cint    isMarried22;
-    cchar   sex22;
-    cfloat  address22;
-    cdouble platformId22;
-    clong8  description22;
-    culong8 interest22;
 
 }
