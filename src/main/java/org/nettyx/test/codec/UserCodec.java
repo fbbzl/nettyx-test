@@ -23,6 +23,7 @@ import java.util.concurrent.TimeUnit;
 public class UserCodec extends StructCodec<User<clong4, Wife<culong8, Son<clong4, Bill>>, GirlFriend>> {
 
     public static final User<clong4, Wife<culong8, Son<clong4, Bill>>, GirlFriend> TEST_USER;
+    public static final Msg                                                        TEST_MSG;
 
     static {
         TypeRefer<User<clong4, Wife<culong8, Son<clong4, Bill>>, GirlFriend>> typeRefer = new TypeRefer<User<clong4,
@@ -31,6 +32,8 @@ public class UserCodec extends StructCodec<User<clong4, Wife<culong8, Son<clong4
         Arrays.fill(bytes, (byte) 67);
 
         TEST_USER = StructSerializer.toStruct(typeRefer, bytes);
+        TEST_MSG  = StructSerializer.toStruct(Msg.class, bytes);
+
     }
 
     @Override
