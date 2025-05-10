@@ -45,7 +45,7 @@ public class MsgCodec extends StructCodec<Msg> {
         super.encode(ctx, msg, out);
         stopWatch.stop();
 
-        Console.log(stopWatch.prettyPrint(TimeUnit.MILLISECONDS));
+        Console.log(stopWatch.prettyPrint(TimeUnit.MICROSECONDS));
     }
 
     @Override
@@ -58,6 +58,6 @@ public class MsgCodec extends StructCodec<Msg> {
         super.decode(ctx, msg, out);
         stopWatch.stop();
 
-        Console.log(stopWatch.prettyPrint(TimeUnit.MILLISECONDS));
+        Console.log(stopWatch.prettyPrint(TimeUnit.MICROSECONDS));
     }
 }
