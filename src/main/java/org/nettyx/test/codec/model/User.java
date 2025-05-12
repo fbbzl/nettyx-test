@@ -1,10 +1,7 @@
 package org.nettyx.test.codec.model;
 
 import lombok.Data;
-import org.fz.nettyx.serializer.struct.annotation.Struct;
-import org.fz.nettyx.serializer.struct.annotation.ToArray;
-import org.fz.nettyx.serializer.struct.annotation.ToArrayList;
-import org.fz.nettyx.serializer.struct.annotation.ToNamedEnum;
+import org.fz.nettyx.serializer.struct.annotation.*;
 import org.fz.nettyx.serializer.struct.basic.c.signed.*;
 import org.fz.nettyx.serializer.struct.basic.c.unsigned.*;
 import org.fz.nettyx.serializer.struct.basic.cpp.cppbool;
@@ -16,6 +13,10 @@ import java.util.List;
 @Data
 @Struct
 public class User<T, W, G> {
+
+    // ignore header
+    @Chunk(size = 40)
+    byte[] header;
 
     @ToNamedEnum(enumType = Ccc.class, bufferLength = 2)
     private Ccc cccEnum;
