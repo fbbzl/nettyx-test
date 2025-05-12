@@ -1,12 +1,12 @@
 
 comm-test:
-  enable: true
+  enable: false
   comm:
     rx: COM2
     tx: COM3
 
 tcp-test:
-  enable: false
+  enable: true
   server:
     host: 127.1.0.1
     port: 9888
