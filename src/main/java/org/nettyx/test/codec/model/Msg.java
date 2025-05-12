@@ -26,7 +26,7 @@ public class Msg {
     clong8  description;
     culong8 interest;
     cint    isMarried1;
-    @ToArray(length = 30)
+    @ToArray(length = 100)
     cchar[]   sex1;
     cfloat  address1;
     cdouble platformId1;
