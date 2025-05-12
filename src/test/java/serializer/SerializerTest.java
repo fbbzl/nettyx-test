@@ -34,8 +34,6 @@ public class SerializerTest {
     static final Class<You> youCLass = You.class;
     private static final StructSerializerContext context = new StructSerializerContext("codec");
 
-
-
     @Test
     public void testTestStructNestedSerializer() {
         byte[] bytes = HexKit.decode("39300000802A00C3F5484048656C6C6F0000000000182D4444FB2109406400572E16400102030405");
@@ -74,13 +72,13 @@ public class SerializerTest {
     }
     @Test
     public void testStructSerializer() {
-        byte[] bytes = new byte[88];
+        byte[] bytes = new byte[8888];
         Arrays.fill(bytes, (byte) 67);
-        You turn = StructSerializer.toStruct(youCLass, bytes);
+        You turn = StructSerializer.toStruct(userTypeRefer, bytes);
         StopWatch stopWatch = StopWatch.create("反序列");
         stopWatch.start();
-        for (int i = 0; i < 1_000_000; i++) {
-            ByteBuf byteBuf = StructSerializer.toByteBuf(youCLass, turn);
+        for (int i = 0; i < 1; i++) {
+            ByteBuf byteBuf = StructSerializer.toByteBuf(userTypeRefer, turn);
         }
         stopWatch.stop();
         Console.print(stopWatch.prettyPrint(TimeUnit.MILLISECONDS));
