@@ -15,7 +15,7 @@ import org.fz.nettyx.serializer.struct.basic.c.unsigned.culong8;
 @Data
 @Struct
 public class Msg {
-    @Chunk(size = 40)
+    @Chunk(length = 40)
     byte[] header;
     cchar   uname;
     cint    isMarried;
