@@ -15,7 +15,7 @@ import org.fz.nettyx.serializer.struct.basic.cpp.unsigned.*;
 @Struct
 public class User<T, W, G> {
 
-    // ignore header
+    // 占位 header
     @Chunk(size = 40)
     byte[] header;
 
