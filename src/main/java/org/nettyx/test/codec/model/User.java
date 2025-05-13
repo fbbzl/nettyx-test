@@ -16,7 +16,7 @@ import org.fz.nettyx.serializer.struct.basic.cpp.unsigned.*;
 public class User<T, W, G> {
 
     // 占位 header
-    @Chunk(size = 40)
+    @Chunk(length = 40)
     byte[] header;
 
     @ToNamedEnum(enumType = Ccc.class, bufferLength = 2)
