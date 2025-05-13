@@ -3,7 +3,6 @@ package org.nettyx.test.codec.model;
 import lombok.Data;
 import org.fz.nettyx.serializer.struct.annotation.Struct;
 import org.fz.nettyx.serializer.struct.annotation.ToArray;
-import org.fz.nettyx.serializer.struct.annotation.ToArrayList;
 import org.fz.nettyx.serializer.struct.annotation.ToNamedEnum;
 import org.fz.nettyx.serializer.struct.basic.c.signed.*;
 import org.fz.nettyx.serializer.struct.basic.c.unsigned.*;
@@ -23,25 +22,25 @@ public class User<T, W, G> {
     private clong4          uid;
     @ToArray(length = 5)
     private cppushort[]     qqNames;
-    @ToArrayList(size = 5)
+    @ToArray(length = 5)
     private List<cppushort> ss;
-    @ToArrayList(size = 5)
+    @ToArray(length = 5)
     private List<cppushort> tts;
 
     private Bom<T, W, G>                                  b;
     @ToArray(length = 5)
     private Bom<T, W, clong4>[]                           g111fs;
-    @ToArrayList(size = 5)
+    @ToArray(length = 5)
     private List<Bom<T, Son<Cuchar11, Bill>, GirlFriend>> bs2d;
 
     private T       sonsbaba;
     @ToArray(length = 5)
     private T[]     sonff;
-    @ToArrayList(size = 5)
+    @ToArray(length = 5)
     private List<T> so111ns;
 
     private W       wwife;
-    @ToArrayList(size = 5)
+    @ToArray(length = 5)
     private List<W> wives;
     @ToArray(length = 5)
     private W[]     wives121212;
