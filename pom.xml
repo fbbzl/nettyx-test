@@ -39,6 +39,8 @@
         <!--log-->
         <disruptor.version>3.4.4</disruptor.version>
 
+        <protostuff-core.version>1.7.4</protostuff-core.version>
+
         <spring-boot-starter-nettyx.version>2.5.5-RELEASE</spring-boot-starter-nettyx.version>
     </properties>
 
@@ -128,6 +130,17 @@
             <artifactId>cglib</artifactId>
             <version>${cglib.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+            <version>${protostuff-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-runtime</artifactId>
+            <version>${protostuff-core.version}</version>
         </dependency>
 
         <dependency>
