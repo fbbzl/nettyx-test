@@ -74,9 +74,11 @@ public class SerializerTest {
     }
     @Test
     public void testStructSerializer() {
-        byte[] bytes = new byte[88];
+        byte[] bytes = new byte[200];
         Arrays.fill(bytes, (byte) 67);
         You turn = StructSerializer.toStruct(youCLass, bytes);
+        byte[] bytes1 = StructSerializer.toBytes(turn);
+        System.err.println(bytes1.length+"个字节");
         StopWatch stopWatch = StopWatch.create("反序列");
         stopWatch.start();
         for (int i = 0; i < 1_000_000; i++) {
