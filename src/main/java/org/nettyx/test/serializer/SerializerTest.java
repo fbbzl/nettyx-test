@@ -30,7 +30,7 @@ public class SerializerTest {
             };
 
     static final Class<You> youCLass = You.class;
-    private static final StructSerializerContext context = new StructSerializerContext("codec");
+    private static final StructSerializerContext context = new StructSerializerContext("org.nettyx");
 
     @Before
     public void correctnessTest() {
