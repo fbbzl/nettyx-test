@@ -12,8 +12,6 @@ import org.fz.nettyx.serializer.struct.basic.cpp.cppbool;
 import org.fz.nettyx.serializer.struct.basic.cpp.signed.*;
 import org.fz.nettyx.serializer.struct.basic.cpp.unsigned.*;
 
-import java.util.List;
-
 @Data
 @Struct
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -26,25 +24,25 @@ public class User<T, W, G> {
     @ToArray(length = 5)
     cppushort[]     qqNames;
     @ToArray(length = 5)
-    List<cppushort> ss;
+    cppushort[] ss;
     @ToArray(length = 5)
-    List<cppushort> tts;
+    cppushort[] tts;
 
     Bom<T, W, G> b;
     @ToArray(length = 5)
     Bom<T, W, clong4>[]                         g111fs;
     @ToArray(length = 5)
-    List<Bom<T, Son<cuchar, Bill>, GirlFriend>> bs2d;
+    Bom<T, Son<cuchar, Bill>, GirlFriend>[] bs2d;
 
     T sonsbaba;
     @ToArray(length = 5)
     T[]     sonff;
     @ToArray(length = 5)
-    List<T> so111ns;
+    T[] so111ns;
 
     W wwife;
     @ToArray(length = 5)
-    List<W> wives;
+    W[] wives;
     @ToArray(length = 5)
     W[]     wives121212;
 
