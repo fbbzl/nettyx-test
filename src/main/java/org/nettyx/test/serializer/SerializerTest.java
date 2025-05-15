@@ -1,18 +1,12 @@
-package serializer;
+package org.nettyx.test.serializer;
 
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.lang.Console;
-import codec.ComplexStruct;
-import codec.ExampleStruct;
-import codec.OutComplexStruct;
-import codec.TestStruct;
-import codec.model.You;
 import io.netty.buffer.ByteBuf;
 import org.fz.nettyx.serializer.struct.StructSerializer;
 import org.fz.nettyx.serializer.struct.StructSerializerContext;
 import org.fz.nettyx.serializer.struct.basic.c.signed.clong4;
 import org.fz.nettyx.serializer.struct.basic.c.signed.clong8;
-import org.fz.nettyx.util.HexKit;
 import org.fz.nettyx.util.TypeRefer;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,54 +34,18 @@ public class SerializerTest {
 
     @Before
     public void correctnessTest() {
-        TypeRefer<codec.model.User<codec.model.Bill, codec.model.Wife<codec.model.Son<clong4, codec.model.Bill>, codec.model.Son<clong4, codec.model.Bill>>, codec.model.GirlFriend>> userTypeRefer =
+        TypeRefer< User< Bill,  Wife<Son<clong4, Bill>, Son<clong4, Bill>>, GirlFriend>> userTypeRefer =
                 new TypeRefer<>() {};
 
         byte[] bytes = new byte[1200];
         Arrays.fill(bytes, (byte) 67);
-        codec.model.User struct   = toStruct(userTypeRefer, bytes);
+        User struct   = toStruct(userTypeRefer, bytes);
         byte[]           buf      = toBytes(userTypeRefer, struct);
-        byte[]           emptyBuf = toBytes(userTypeRefer, new codec.model.User<>());
+        byte[]           emptyBuf = toBytes(userTypeRefer, new User<>());
         Console.log(">correctness test passed!!!!!!!!<");
         Console.log("");
     }
 
-    @Test
-    public void testTestStructNestedSerializer() {
-        byte[] bytes = HexKit.decode("39300000802A00C3F5484048656C6C6F0000000000182D4444FB2109406400572E16400102030405");
-
-        OutComplexStruct struct = StructSerializer.toStruct(OutComplexStruct.class, bytes);
-        System.err.println(struct.getFlags().getValue());
-        System.err.println(struct);
-    }
-
-
-    @Test
-    public void testTestStructSerializer() {
-        byte[] bytes = HexKit.decode("39300000802A00C3F5484048656C6C6F0000000000182D4444FB210940");
-
-        TestStruct struct = StructSerializer.toStruct(TestStruct.class, bytes);
-        System.err.println(struct.getFlags().getValue());
-        System.err.println(struct);
-    }
-
-    @Test
-    public void testComplexStructSerializer() {
-        byte[] bytes = HexKit.decode("39300000C3F54840572E1640F304B53F4B696D69000000000000802A00182D4444FB210940");
-
-        ComplexStruct struct = StructSerializer.toStruct(ComplexStruct.class, bytes);
-
-        System.err.println(struct);
-    }
-
-    @Test
-    public void testExampleStructSerializer() {
-        byte[] bytes = HexKit.decode("39300000C3F5484048656C6C6F576F726C64000000000000");
-
-        ExampleStruct struct = StructSerializer.toStruct(ExampleStruct.class, bytes);
-
-        System.err.println(struct);
-    }
     @Test
     public void testStructSerializer() {
         byte[] bytes = new byte[200];

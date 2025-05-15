@@ -1,4 +1,4 @@
-package protostuff;
+package org.nettyx.test.protostuff;
 
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.lang.Console;
@@ -7,7 +7,7 @@ import io.protostuff.ProtostuffIOUtil;
 import io.protostuff.Schema;
 import io.protostuff.runtime.RuntimeSchema;
 import org.junit.Test;
-import protostuff.Abses.XX;
+import org.nettyx.test.protostuff.Abses.XX;
 
 import java.util.concurrent.TimeUnit;
 

@@ -1,4 +1,4 @@
-package protostuff;
+package org.nettyx.test.protostuff;
 
 import io.protostuff.Tag;
 import lombok.AccessLevel;
