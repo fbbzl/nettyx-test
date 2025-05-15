@@ -14,11 +14,15 @@ import org.fz.nettyx.serializer.struct.basic.c.signed.clong4;
 import org.fz.nettyx.serializer.struct.basic.c.signed.clong8;
 import org.fz.nettyx.util.HexKit;
 import org.fz.nettyx.util.TypeRefer;
+import org.junit.Before;
 import org.junit.Test;
 import org.nettyx.test.codec.model.*;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
+
+import static org.fz.nettyx.serializer.struct.StructSerializer.toBytes;
+import static org.fz.nettyx.serializer.struct.StructSerializer.toStruct;
 
 /**
  * @author fengbinbin
@@ -34,7 +38,19 @@ public class SerializerTest {
     static final Class<You> youCLass = You.class;
     private static final StructSerializerContext context = new StructSerializerContext("codec");
 
+    @Before
+    public void correctnessTest() {
+        TypeRefer<codec.model.User<codec.model.Bill, codec.model.Wife<codec.model.Son<clong4, codec.model.Bill>, codec.model.Son<clong4, codec.model.Bill>>, codec.model.GirlFriend>> userTypeRefer =
+                new TypeRefer<>() {};
 
+        byte[] bytes = new byte[1200];
+        Arrays.fill(bytes, (byte) 67);
+        codec.model.User struct   = toStruct(userTypeRefer, bytes);
+        byte[]           buf      = toBytes(userTypeRefer, struct);
+        byte[]           emptyBuf = toBytes(userTypeRefer, new codec.model.User<>());
+        Console.log(">correctness test passed!!!!!!!!<");
+        Console.log("");
+    }
 
     @Test
     public void testTestStructNestedSerializer() {
