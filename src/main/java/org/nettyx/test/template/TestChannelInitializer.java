@@ -26,12 +26,12 @@ public class TestChannelInitializer<C extends Channel> extends ChannelInitialize
 
     @Override
     protected void initChannel(C channel) {
-        InboundAdvice inboundAdvice = new InboundAdvice(channel);
-        inboundAdvice.whenChannelInactive(ctx -> Console.print("[断连了] 在这执行你的逻辑代码, 访问数据库, 发布事件,记录状态等任何操作"))
-                     .whenChannelActive(ctx -> Console.print("[连接成功] 在这执行你的逻辑代码, 访问数据库, 发布事件,记录状态等任何操作"));
+        InboundAdvice inboundAdvice = new InboundAdvice(channel)
+                .whenChannelInactive(ctx -> Console.print("[断连了] 在这执行你的逻辑代码, 访问数据库, 发布事件,记录状态等任何操作"))
+                .whenChannelActive(ctx -> Console.print("[连接成功] 在这执行你的逻辑代码, 访问数据库, 发布事件,记录状态等任何操作"));
 
-        OutboundAdvice outboundAdvice = new OutboundAdvice(channel);
-        outboundAdvice.whenDisconnect((ctx, promise) -> Console.print("[断连了] 执行你的逻辑, 访问数据库, 发布事件,记录状态等任何操作..."));
+        OutboundAdvice outboundAdvice = new OutboundAdvice(channel)
+                .whenDisconnect((ctx, promise) -> Console.print("[断连了] 执行你的逻辑, 访问数据库, 发布事件,记录状态等任何操作..."));
 
         channel.pipeline().addLast(
                 outboundAdvice,
