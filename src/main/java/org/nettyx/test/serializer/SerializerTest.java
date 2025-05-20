@@ -6,11 +6,16 @@ import io.netty.buffer.ByteBuf;
 import org.fz.erwin.lang.TypeRefer;
 import org.fz.nettyx.serializer.struct.StructSerializer;
 import org.fz.nettyx.serializer.struct.StructSerializerContext;
+import org.fz.nettyx.serializer.struct.basic.c.signed.cchar;
+import org.fz.nettyx.serializer.struct.basic.c.signed.cint;
 import org.fz.nettyx.serializer.struct.basic.c.signed.clong4;
 import org.fz.nettyx.serializer.struct.basic.c.signed.clong8;
 import org.junit.Before;
 import org.junit.Test;
 import org.nettyx.test.codec.model.*;
+import org.nettyx.test.codec.test.Score;
+import org.nettyx.test.codec.test.Score.Contact;
+import org.nettyx.test.codec.test.Score.Student;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
@@ -42,6 +47,19 @@ public class SerializerTest {
         User struct   = toStruct(userTypeRefer, bytes);
         byte[]           buf      = toBytes(userTypeRefer, struct);
         byte[]           emptyBuf = toBytes(userTypeRefer, new User<>());
+        Score score = new Score();
+        score.setMath(new cint(100));
+        score.setEnglish(new cint(99));
+        Contact contact = new Contact();
+        contact.setPhone(new cint(78));
+        contact.setEmail(new cchar[]{new cchar(1), new cchar(4)});
+        Student student = new Student();
+        student.setId(new cint(23));
+        student.setName(new cchar[]{new cchar(7), new cchar(2)});
+        student.setScores(score);
+        student.setContact(contact);
+
+        Student struct1 = toStruct(Student.class, toBytes(student));
         Console.log(">correctness test passed!!!!!!!!<");
         Console.log("");
     }
