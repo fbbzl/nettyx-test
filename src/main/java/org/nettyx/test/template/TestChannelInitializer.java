@@ -2,13 +2,12 @@ package org.nettyx.test.template;
 
 
 import cn.hutool.core.lang.Console;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
 import io.netty.handler.logging.ByteBufFormat;
 import io.netty.handler.logging.LoggingHandler;
 import org.fz.nettyx.codec.EscapeCodec;
-import org.fz.nettyx.codec.EscapeCodec.EscapeMapping;
+import org.fz.nettyx.codec.EscapeCodec.EscapeMap;
 import org.fz.nettyx.codec.StartEndFlagFrameCodec;
 import org.fz.nettyx.handler.ChannelAdvice.InboundAdvice;
 import org.fz.nettyx.handler.ChannelAdvice.OutboundAdvice;
@@ -33,10 +32,13 @@ public class TestChannelInitializer<C extends Channel> extends ChannelInitialize
         OutboundAdvice outboundAdvice = new OutboundAdvice(channel)
                 .whenDisconnect((ctx, promise) -> Console.print("[断连了] 执行你的逻辑, 访问数据库, 发布事件,记录状态等任何操作..."));
 
+        EscapeMap escapeMap = new EscapeMap();
+        escapeMap.putHex("7e", "7d5e");
+
         channel.pipeline().addLast(
                 outboundAdvice,
-                new StartEndFlagFrameCodec(1024 * 1024 * 8, true, Unpooled.wrappedBuffer(new byte[]{ (byte) 0x7e })),
-                new EscapeCodec(EscapeMapping.mapHex("7e", "7d5e")),
+                new StartEndFlagFrameCodec(1024 * 1024 * 8, true, "7e"),
+                new EscapeCodec(escapeMap),
                 new MsgCodec(),
                 new MessageEchoHandler(),
                 new LoggingHandler(ByteBufFormat.HEX_DUMP),

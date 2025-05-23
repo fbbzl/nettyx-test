@@ -41,7 +41,7 @@
 
         <protostuff-core.version>1.7.4</protostuff-core.version>
 
-        <spring-boot-starter-nettyx.version>2.5.7-RELEASE</spring-boot-starter-nettyx.version>
+        <spring-boot-starter-nettyx.version>2.5.8-RELEASE</spring-boot-starter-nettyx.version>
     </properties>
 
     <dependencies>
