@@ -35,7 +35,10 @@ public class TestChannelInitializer<C extends Channel> extends ChannelInitialize
         channel.pipeline().addLast(
                 outboundAdvice,
                 new StartEndFlagFrameCodec(1024 * 1024 * 8, true, "7e"),
-                new EscapeCodec(new EscapeMap() {{ putHex("7e", "7d5e"); }}),
+                new EscapeCodec(new EscapeMap() {{
+                    putHex("7e", "7d5e");
+                    putHex("7d", "7d5d");
+                }}),
                 new MsgCodec(),
                 new MessageEchoHandler(),
                 new LoggingHandler(ByteBufFormat.HEX_DUMP),

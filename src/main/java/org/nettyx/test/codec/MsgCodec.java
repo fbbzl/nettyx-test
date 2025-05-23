@@ -19,15 +19,14 @@ import java.util.concurrent.TimeUnit;
  */
 public class MsgCodec extends StructCodec<Msg> {
 
-
     public static final Msg TEST_MSG;
 
     static {
-        byte[] bytes = new byte[400];
+        byte[] bytes = new byte[500];
         Arrays.fill(bytes, (byte) 67);
-
-        bytes[2] = 0x7d;
-        bytes[3] = 0x5e;
+        bytes[2] = 0x7e;
+        bytes[4] = 0x1e;
+        bytes[5] = 0x7d;
 
         TEST_MSG = StructSerializer.toStruct(Msg.class, bytes);
         byte[] bytes1 = StructSerializer.toBytes(TEST_MSG);
