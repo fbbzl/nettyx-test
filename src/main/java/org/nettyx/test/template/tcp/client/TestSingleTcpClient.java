@@ -43,7 +43,7 @@ public class TestSingleTcpClient extends SingleTcpChannelClientTemplate implemen
                     Console.log(cf.channel().localAddress() + ": ok");
                 })
                 .whenCancelled((ls, cf) -> Console.log("cancel"))
-                .whenFailure(redo(this::connect, 10, TimeUnit.SECONDS, 3, (l, c) -> System.err.println("最后次失败后执行")))
+                .whenFailure(redo(this::connect, 10, TimeUnit.SECONDS, 3, (l, c) -> Console.log("已重试3次, 但是依然失败")))
                 .whenDone((ls, cf) -> Console.log("done"));
 
         this.connect().addListener(listener);
