@@ -26,6 +26,9 @@ public class MsgCodec extends StructCodec<Msg> {
         byte[] bytes = new byte[400];
         Arrays.fill(bytes, (byte) 67);
 
+        bytes[2] = 0x7d;
+        bytes[3] = 0x5e;
+
         TEST_MSG = StructSerializer.toStruct(Msg.class, bytes);
         byte[] bytes1 = StructSerializer.toBytes(TEST_MSG);
         System.err.println();
