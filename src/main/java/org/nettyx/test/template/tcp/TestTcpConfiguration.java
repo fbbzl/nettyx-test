@@ -40,6 +40,7 @@ public class TestTcpConfiguration {
             @Value("${tcp-test.server.port}") int port) {
         Map<String, InetSocketAddress> map        = new HashMap<>();
         InetSocketAddress              serverAddr = new InetSocketAddress(host, port);
+        // 模拟创建了4channel
         for (int i = 0; i < 4; i++) {
             map.put("b" + i, serverAddr);
         }
