@@ -14,6 +14,7 @@ import java.net.InetSocketAddress;
 import java.util.concurrent.TimeUnit;
 
 import static org.fz.nettyx.action.ListenerAction.redo;
+import static org.nettyx.test.codec.MsgCodec.TEST_MSG;
 
 
 /**
@@ -38,7 +39,7 @@ public class TestSingleTcpClient extends SingleTcpChannelClientTemplate implemen
     public void run(String... args) throws Exception {
         ChannelFutureListener listener = new ActionChannelFutureListener()
                 .whenSuccess((ls, cf) -> {
-
+                    cf.channel().writeAndFlush(TEST_MSG);
                     Console.log(cf.channel().localAddress() + ": ok");
                 })
                 .whenCancelled((ls, cf) -> Console.log("cancel"))

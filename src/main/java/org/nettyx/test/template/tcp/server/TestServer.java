@@ -6,7 +6,7 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import org.fz.nettyx.template.tcp.server.TcpServerTemplate;
 import org.nettyx.test.template.TestChannelInitializer;
-import org.springframework.boot.CommandLineRunner;
+import org.springframework.beans.factory.InitializingBean;
 
 
 /**
@@ -15,7 +15,7 @@ import org.springframework.boot.CommandLineRunner;
  * @since 2024/4/11 15:59
  */
 
-public class TestServer extends TcpServerTemplate implements CommandLineRunner {
+public class TestServer extends TcpServerTemplate implements InitializingBean {
 
     public TestServer(int bindPort) {
         super(bindPort);
@@ -27,7 +27,7 @@ public class TestServer extends TcpServerTemplate implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void afterPropertiesSet() throws Exception {
         ChannelFuture bindFuture = this.bind();
         bindFuture.addListener(cf -> Console.log("binding state:" + cf.isSuccess()));
         bindFuture.channel().closeFuture().addListener(cf -> {
