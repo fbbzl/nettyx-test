@@ -66,7 +66,7 @@ public class SerializerTest {
 
     @Test
     public void testStructSerializer() {
-        byte[] bytes = new byte[200];
+        byte[] bytes = new byte[300];
         Arrays.fill(bytes, (byte) 67);
         You turn = StructSerializer.toStruct(youCLass, bytes);
         byte[] bytes1 = StructSerializer.toBytes(turn);

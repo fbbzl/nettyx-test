@@ -5,7 +5,6 @@ import org.fz.nettyx.serializer.struct.annotation.Struct;
 import org.fz.nettyx.serializer.struct.annotation.ToArray;
 import org.fz.nettyx.serializer.struct.basic.c.signed.*;
 import org.fz.nettyx.serializer.struct.basic.c.unsigned.culong8;
-
 /**
  * @author fengbinbin
  * @version 1.0
@@ -28,9 +27,8 @@ public class You {
     cfloat  address1;
     cdouble platformId1;
     clong8  description1;
-    @ToArray(length = 3)
+    @ToArray(length = 8)
     culong8[] interest1;
-
 
 
 }
