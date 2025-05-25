@@ -34,7 +34,7 @@ public class ProtostuffTest {
         // 反序列化
         StopWatch stopWatch = StopWatch.create("反序列");
         stopWatch.start();
-        for (int i = 0; i < 1_000_000; i++) {
+        for (int i = 0; i < 10_000_000; i++) {
             Abses<String> newUser = new Abses<>();
             ProtostuffIOUtil.mergeFrom(data, newUser, schema);
             // List age = newUser.getAge();
