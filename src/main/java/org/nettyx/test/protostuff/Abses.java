@@ -5,6 +5,8 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
+import java.util.List;
+
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -43,7 +45,8 @@ public class Abses<T> {
     int     namfe132;
     @Tag(17)
     String  na4me132;
-
+    @Tag(18)
+    List<Integer> xx;
 
     @Data
     public static class XX {

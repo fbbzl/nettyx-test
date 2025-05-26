@@ -1,7 +1,9 @@
 package org.nettyx.test.protostuff;
 
+import cn.hutool.core.collection.ListUtil;
 import cn.hutool.core.date.StopWatch;
 import cn.hutool.core.lang.Console;
+import cn.hutool.core.util.PrimitiveArrayUtil;
 import io.protostuff.LinkedBuffer;
 import io.protostuff.ProtostuffIOUtil;
 import io.protostuff.Schema;
@@ -9,13 +11,18 @@ import io.protostuff.runtime.RuntimeSchema;
 import org.junit.Test;
 import org.nettyx.test.protostuff.Abses.XX;
 
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 public class ProtostuffTest {
 
     @Test
     public void test() {
+        int[] x = new int[1400];
+        Arrays.fill(x, 20);
+
         Abses<XX> user = setProperties();
+        user.setXx( ListUtil.of(PrimitiveArrayUtil.wrap(x)));
 
         // 获取 Schema
         Schema<Abses> schema = RuntimeSchema.getSchema(Abses.class);
