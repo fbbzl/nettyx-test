@@ -22,7 +22,7 @@ public class MsgCodec extends StructCodec<Msg> {
     public static final Msg TEST_MSG;
 
     static {
-        byte[] bytes = new byte[500];
+        byte[] bytes = new byte[5000];
         Arrays.fill(bytes, (byte) 67);
         bytes[2] = 0x7e;
         bytes[4] = 0x1e;
