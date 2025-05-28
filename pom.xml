@@ -9,15 +9,11 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <!--base-->
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
 
         <spring-boot.version>2.7.5</spring-boot.version>
 
@@ -41,7 +37,7 @@
 
         <protostuff-core.version>1.7.4</protostuff-core.version>
 
-        <spring-boot-starter-nettyx.version>2.6.0-RELEASE</spring-boot-starter-nettyx.version>
+        <spring-boot-starter-nettyx.version>2.6.1-RELEASE</spring-boot-starter-nettyx.version>
     </properties>
 
     <dependencies>
