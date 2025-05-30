@@ -9,6 +9,7 @@ import org.fz.nettyx.serializer.struct.basic.c.unsigned.*;
 import org.fz.nettyx.serializer.struct.basic.cpp.cppbool;
 import org.fz.nettyx.serializer.struct.basic.cpp.signed.*;
 import org.fz.nettyx.serializer.struct.basic.cpp.unsigned.*;
+import org.nettyx.test.biz.Bill;
 
 @Data
 @Struct
@@ -27,7 +28,7 @@ public class User<T, W, G> {
 
     private Bom<T, W, G>                                  b;
     @ToArray(length = 5)
-    private Bom<T, W, clong4>[]                           g111fs;
+    private Bom<T, W, clong4>[]                       g111fs;
     @ToArray(length = 5)
     private Bom<T, Son<Cuchar11, Bill>, GirlFriend>[] bs2d;
 

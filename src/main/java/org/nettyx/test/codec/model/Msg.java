@@ -5,6 +5,7 @@ import org.fz.nettyx.serializer.struct.annotation.Struct;
 import org.fz.nettyx.serializer.struct.annotation.ToArray;
 import org.fz.nettyx.serializer.struct.basic.c.signed.*;
 import org.fz.nettyx.serializer.struct.basic.c.unsigned.culong8;
+import org.nettyx.test.biz.Bill;
 
 /**
  * @author fengbinbin
@@ -70,8 +71,8 @@ public class Msg {
     cdouble platformId22222;
     clong8  description22222;
     culong8 interest22222;
-
-    @ToArray(length = 500)
+    Bill    bill;
+    @ToArray(length = 100)
     culong8[] interest222221;
 
 }

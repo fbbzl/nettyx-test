@@ -12,6 +12,7 @@ import org.fz.nettyx.serializer.struct.basic.c.signed.clong4;
 import org.fz.nettyx.serializer.struct.basic.c.signed.clong8;
 import org.junit.Before;
 import org.junit.Test;
+import org.nettyx.test.biz.Bill;
 import org.nettyx.test.codec.model.*;
 import org.nettyx.test.codec.test.Score;
 import org.nettyx.test.codec.test.Score.Contact;
