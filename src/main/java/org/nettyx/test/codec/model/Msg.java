@@ -74,5 +74,20 @@ public class Msg {
     Bill    bill;
     @ToArray(length = 100)
     culong8[] interest222221;
+    Fork fork;
+
+
+    @Data
+    @Struct
+    public static class Fork {
+        Giffy giffy;
+
+        @Data
+        @Struct
+        public static class Giffy {
+            culong8 interest;
+        }
+
+    }
 
 }
