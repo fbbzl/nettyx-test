@@ -74,7 +74,7 @@ public class SerializerTest {
         System.err.println(bytes1.length + "个字节");
         StopWatch stopWatch = StopWatch.create("反序列");
         stopWatch.start();
-        for (int i = 0; i < 10_000_000; i++) {
+        for (int i = 0; i < 1_000_000; i++) {
             ByteBuf byteBuf = StructSerializer.toByteBuf(youCLass, turn);
         }
         stopWatch.stop();
