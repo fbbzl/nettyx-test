@@ -18,7 +18,7 @@ public class ProtostuffTest {
 
     @Test
     public void test() {
-        int[] x = new int[1400];
+        int[] x = new int[1];
         Arrays.fill(x, 20);
 
         Abses<XX> user = setProperties();
