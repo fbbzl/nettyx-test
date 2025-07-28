@@ -25,7 +25,6 @@ import static org.nettyx.test.codec.MsgCodec.TEST_MSG;
 
 public class TestSingleTcpClient extends SingleTcpChannelClientTemplate implements CommandLineRunner {
 
-
     public TestSingleTcpClient(String address, int serverPort) {
         super(new InetSocketAddress(address, serverPort));
     }
