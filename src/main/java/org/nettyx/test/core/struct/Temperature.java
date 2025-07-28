@@ -8,6 +8,7 @@ import org.fz.nettyx.serializer.struct.annotation.Struct;
 import org.fz.nettyx.serializer.struct.annotation.ToCharSequence;
 import org.fz.nettyx.serializer.struct.basic.c.signed.cdouble;
 import org.fz.nettyx.serializer.struct.basic.c.signed.cint;
+import org.fz.nettyx.serializer.struct.basic.c.unsigned.culong4;
 import org.fz.nettyx.serializer.struct.basic.c.unsigned.culong8;
 
 /**
@@ -30,7 +31,9 @@ public class Temperature {
 
     cdouble platformId;
 
-    culong8 description;
+    culong8 net;
+
+    culong4 subNet;
 
 
 }
