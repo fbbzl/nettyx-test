@@ -26,7 +26,7 @@ public class TestChannelInitializer<C extends Channel> extends ChannelInitialize
     @Override
     protected void initChannel(C channel) {
         InboundAdvice inboundAdvice = new InboundAdvice(channel)
-                .whenChannelInactive(ctx -> Console.print("[断连了] 在这执行你的逻辑代码, 可以在这执行访问数据库, 发布事件, 重新连接,记录状态等任何操作"))
+                .whenChannelInactive(ctx -> Console.print("[断连了] 在这执行你的逻辑代码, 可以在这执行访问数据库, 发布事件,记录状态等任何操作"))
                 .whenChannelActive(ctx -> Console.print("[连接成功] 在这执行你的逻辑代码, 可以在这执行访问数据库, 发布事件,记录状态等任何操作"));
 
         OutboundAdvice outboundAdvice = new OutboundAdvice(channel)
