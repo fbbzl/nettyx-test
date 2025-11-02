@@ -6,7 +6,7 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import org.fz.nettyx.listener.ActionChannelFutureListener;
-import org.fz.nettyx.template.tcp.client.SingleTcpChannelClientTemplate;
+import org.fz.nettyx.template.tcp.client.SingleChannelClientTemplate;
 import org.nettyx.test.template.TestChannelInitializer;
 import org.springframework.boot.CommandLineRunner;
 
@@ -23,7 +23,7 @@ import static org.nettyx.test.codec.MsgCodec.TEST_MSG;
  * @since 2024/4/11 15:59
  */
 
-public class TestSingleTcpClient extends SingleTcpChannelClientTemplate implements CommandLineRunner {
+public class TestSingleTcpClient extends SingleChannelClientTemplate implements CommandLineRunner {
 
 
     public TestSingleTcpClient(String address, int serverPort) {

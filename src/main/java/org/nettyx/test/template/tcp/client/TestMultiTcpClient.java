@@ -6,7 +6,7 @@ import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import org.fz.nettyx.listener.ActionChannelFutureListener;
-import org.fz.nettyx.template.tcp.client.MultiTcpChannelClientTemplate;
+import org.fz.nettyx.template.tcp.client.MultiChannelClientTemplate;
 import org.nettyx.test.template.TestChannelInitializer;
 import org.springframework.boot.CommandLineRunner;
 
@@ -24,7 +24,7 @@ import static org.nettyx.test.codec.MsgCodec.TEST_MSG;
  * @since 2024/4/11 15:59
  */
 
-public class TestMultiTcpClient extends MultiTcpChannelClientTemplate<String> implements CommandLineRunner {
+public class TestMultiTcpClient extends MultiChannelClientTemplate<String> implements CommandLineRunner {
 
     public TestMultiTcpClient(Map<String, InetSocketAddress> map) {
         super(map);
