@@ -26,13 +26,13 @@ public class TestCommConfiguration {
     }
 
     @Bean
-    @ConditionalOnJava(value = JavaVersion.NINE, range = Range.OLDER_THAN)
+    @ConditionalOnJava(value = JavaVersion.TWENTY_TWO, range = Range.OLDER_THAN)
     public TestSingleRxtx rxtxClientRx(@Value("${comm-test.comm.tx}") String commAddress) {
         return new TestSingleRxtx(commAddress);
     }
 
     @Bean
-    @ConditionalOnJava(value = JavaVersion.NINE, range = Range.EQUAL_OR_NEWER)
+    @ConditionalOnJava(value = JavaVersion.TWENTY_TWO, range = Range.EQUAL_OR_NEWER)
     public TestSingleJsc jscClientRx(@Value("${comm-test.comm.tx}") String commAddress) {
         return new TestSingleJsc(commAddress);
     }

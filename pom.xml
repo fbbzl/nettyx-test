@@ -13,7 +13,7 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <spring-boot.version>2.7.5</spring-boot.version>
+        <spring-boot.version>3.5.7</spring-boot.version>
 
         <lombok.version>1.18.34</lombok.version>
 
@@ -33,7 +33,7 @@
         <!--log-->
         <disruptor.version>3.4.4</disruptor.version>
 
-        <spring-boot-starter-nettyx.version>2.6.3-RELEASE</spring-boot-starter-nettyx.version>
+        <spring-boot-starter-nettyx.version>3.5.7</spring-boot-starter-nettyx.version>
     </properties>
 
     <dependencies>
