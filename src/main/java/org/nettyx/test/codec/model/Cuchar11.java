@@ -2,8 +2,9 @@ package org.nettyx.test.codec.model;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import org.fz.nettyx.serializer.struct.basic.c.CBasic;
+import org.fz.nettyx.serializer.struct.basic.c.Cbasic;
 
+import java.nio.ByteOrder;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
@@ -14,7 +15,7 @@ import java.nio.charset.StandardCharsets;
  * @version 1.0
  * @since 2023 /12/15 14:38
  */
-public class Cuchar11 extends CBasic<Short> {
+public class Cuchar11 extends Cbasic<Short> {
 
 	/**
 	 * The constant MIN_VALUE.
@@ -49,15 +50,15 @@ public class Cuchar11 extends CBasic<Short> {
 		return false;
 	}
 
-	@Override
-	protected ByteBuf toByteBuf(Short value, int size) {
-		return Unpooled.buffer(size).writeByte(value.byteValue());
-	}
+    @Override
+    protected ByteBuf toByteBuf(Short value, ByteOrder byteOrder) {
+        return Unpooled.buffer(size).writeByte(value.byteValue());
+    }
 
-	@Override
-	protected Short toValue(ByteBuf byteBuf) {
-		return byteBuf.readUnsignedByte();
-	}
+    @Override
+    protected Short toValue(ByteBuf byteBuf, ByteOrder byteOrder) {
+        return byteBuf.readUnsignedByte();
+    }
 
 	@Override
 	public String toString() {

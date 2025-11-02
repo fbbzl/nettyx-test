@@ -4,7 +4,7 @@ import cn.hutool.core.lang.Console;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import org.fz.nettyx.template.tcp.server.TcpServerTemplate;
+import org.fz.nettyx.template.tcp.server.ServerTemplate;
 import org.nettyx.test.template.TestChannelInitializer;
 import org.springframework.boot.CommandLineRunner;
 
@@ -15,7 +15,7 @@ import org.springframework.boot.CommandLineRunner;
  * @since 2024/4/11 15:59
  */
 
-public class TestServer extends TcpServerTemplate implements CommandLineRunner {
+public class TestServer extends ServerTemplate implements CommandLineRunner {
 
     public TestServer(int bindPort) {
         super(bindPort);
