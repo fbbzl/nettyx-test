@@ -1,6 +1,8 @@
 package org.nettyx.test.codec.model;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.experimental.FieldDefaults;
 import org.fz.nettyx.serializer.struct.annotation.Struct;
 import org.fz.nettyx.serializer.struct.annotation.ToCharSequence;
 import org.fz.nettyx.serializer.struct.annotation.ToNamedEnum;
@@ -8,15 +10,16 @@ import org.fz.nettyx.serializer.struct.basic.c.unsigned.cuchar;
 
 @Data
 @Struct
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Bill {
 
-    private cuchar bid;
+    cuchar bid;
 
     @ToCharSequence(bufferLength = 4)
-    private String orgName;
+    String orgName;
 
     @ToNamedEnum(enumType = BillType.class, bufferLength = 3)
-    private BillType billType;
+    BillType billType;
 
     public enum BillType {
         C,

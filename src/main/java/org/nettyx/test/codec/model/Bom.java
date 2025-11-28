@@ -1,6 +1,8 @@
 package org.nettyx.test.codec.model;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.experimental.FieldDefaults;
 import org.fz.nettyx.serializer.struct.annotation.Struct;
 
 /**
@@ -11,10 +13,11 @@ import org.fz.nettyx.serializer.struct.annotation.Struct;
 
 @Data
 @Struct
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Bom<T, W, U> {
 
-    private T t;
-    private W gg;
-    private U mm;
+    T t;
+    W gg;
+    U mm;
 
 }

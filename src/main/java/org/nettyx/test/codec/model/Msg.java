@@ -1,6 +1,8 @@
 package org.nettyx.test.codec.model;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.experimental.FieldDefaults;
 import org.fz.nettyx.serializer.struct.annotation.Chunk;
 import org.fz.nettyx.serializer.struct.annotation.Struct;
 import org.fz.nettyx.serializer.struct.annotation.ToArray;
@@ -15,6 +17,7 @@ import org.fz.nettyx.serializer.struct.basic.c.unsigned.culong8;
 
 @Data
 @Struct
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Msg {
     @Chunk(length = 40)
     byte[] header;
