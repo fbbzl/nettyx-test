@@ -38,11 +38,11 @@ public class TestChannelInitializer<C extends Channel> extends ChannelInitialize
         };
         channel.pipeline().addLast(
                 outboundAdvice,
-                new StartEndFlagFrameCodec(1024 * 1024 * 8, true, "7e")
-                , new EscapeCodec(escapeMap)
-                , new MsgCodec()
-                , new MessageEchoHandler()
-                , new LoggingHandler(ByteBufFormat.HEX_DUMP)
-                , inboundAdvice);
+                new StartEndFlagFrameCodec(1024 * 1024 * 8, true, "7e"),
+                new EscapeCodec(escapeMap),
+                new MsgCodec(),
+                new MessageEchoHandler(),
+                new LoggingHandler(ByteBufFormat.HEX_DUMP),
+                inboundAdvice);
     }
 }
