@@ -33,7 +33,7 @@
         <!--log-->
         <disruptor.version>3.4.4</disruptor.version>
 
-        <spring-boot-starter-nettyx.version>3.5.7</spring-boot-starter-nettyx.version>
+        <spring-boot-starter-nettyx.version>3.5.9</spring-boot-starter-nettyx.version>
     </properties>
 
     <dependencies>
